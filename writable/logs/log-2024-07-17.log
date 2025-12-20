@@ -1,0 +1,498 @@
+WARNING - 2024-07-17 05:31:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 05:31:55 --> TypeError: move_uploaded_file(): Argument #1 ($from) must be of type string, GdImage given
+[Method: POST, Route: Buyer/signup]
+in APPPATH\Controllers\Buyer\BuyerController.php on line 259.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(259): move_uploaded_file(Object(GdImage), 'E:\\xampp\\htdocs\\ecommerce\\assets/uploads/profile_image/PROFILE_E3ED1425-775E-4704-84C1-C0F8269DEB03_1721194315.png')
+ 2 APPPATH\Controllers\Buyer\BuyerController.php(39): App\Controllers\Buyer\BuyerController->upload_profile_image('iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=', 'assets/uploads/profile_image/')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 05:34:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 05:35:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 05:35:50 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 05:38:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:05:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:06:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:06:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 06:36:00 --> ParseError: syntax error, unexpected token ","
+[Method: POST, Route: Buyer/update-password]
+in APPPATH\Controllers\Buyer\BuyerController.php on line 200.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\xampp\\htdocs\\ecommerce\\app\\Controllers\\Buyer\\BuyerController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Buyer\\BuyerController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Buyer\\BuyerController')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Buyer\\BuyerController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:36:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:38:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 06:54:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:02:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:03:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:10:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:10:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:10:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:12:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:13:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:14:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:15:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:15:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:16:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 10:16:45 --> ParseError: syntax error, unexpected token "as", expecting "]"
+[Method: POST, Route: Buyer/category-list]
+in APPPATH\Models\Buyer\BuyerModel.php on line 53.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('E:\\xampp\\htdocs\\ecommerce\\app\\Models\\Buyer\\BuyerModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Buyer\\BuyerModel')
+ 3 APPPATH\Controllers\Buyer\Common.php(37): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Buyer\\BuyerModel')
+ 4 APPPATH\Controllers\Buyer\BuyerController.php(273): App\Controllers\Buyer\Common->init_BuyerModel()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->category_list()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:17:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:19:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 10:19:38 --> Error: Undefined constant "App\Controllers\Buyer\app"
+[Method: POST, Route: Buyer/category-list]
+in APPPATH\Controllers\Buyer\BuyerController.php on line 276.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->category_list()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:20:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:25:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 10:25:36 --> ErrorException: Undefined variable $baseURL
+[Method: POST, Route: Buyer/category-list]
+in APPPATH\Controllers\Buyer\BuyerController.php on line 276.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(276): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $baseURL', 'E:\\xampp\\htdocs\\ecommerce\\app\\Controllers\\Buyer\\BuyerController.php', 276)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->category_list()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:31:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 10:32:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:14:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:32:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 11:32:59 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+[Method: POST, Route: Buyer/store-details]
+in APPPATH\Models\Buyer\BuyerModel.php on line 74.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(298): App\Models\Buyer\BuyerModel->get_store_details('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->store_details()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:35:37 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 11:35:37 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+[Method: POST, Route: Buyer/store-details]
+in APPPATH\Models\Buyer\BuyerModel.php on line 74.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(298): App\Models\Buyer\BuyerModel->get_store_details('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->store_details()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:40:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 11:40:39 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+[Method: POST, Route: Buyer/store-details]
+in APPPATH\Models\Buyer\BuyerModel.php on line 74.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(298): App\Models\Buyer\BuyerModel->get_store_details('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->store_details()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:41:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 11:41:07 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+[Method: POST, Route: Buyer/store-details]
+in APPPATH\Models\Buyer\BuyerModel.php on line 74.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(298): App\Models\Buyer\BuyerModel->get_store_details('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->store_details()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:45:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 11:45:27 --> ErrorException: Undefined variable $response
+[Method: POST, Route: Buyer/store-details]
+in APPPATH\Controllers\Buyer\BuyerController.php on line 305.
+ 1 APPPATH\Controllers\Buyer\BuyerController.php(305): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $response', 'E:\\xampp\\htdocs\\ecommerce\\app\\Controllers\\Buyer\\BuyerController.php', 305)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->store_details()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:46:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 11:48:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:50 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:00:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:32:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:33:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-17 12:33:35 --> mysqli_sql_exception: Unknown column 'state' in 'where clause' in E:\xampp\htdocs\ecommerce\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\ecommerce\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `uId` as...', 0)
+#1 E:\xampp\htdocs\ecommerce\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `uId` as...')
+#2 E:\xampp\htdocs\ecommerce\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `uId` as...')
+#3 E:\xampp\htdocs\ecommerce\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `uId` as...', Array, false)
+#4 E:\xampp\htdocs\ecommerce\app\Models\Buyer\BuyerModel.php(90): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\xampp\htdocs\ecommerce\app\Controllers\Buyer\BuyerController.php(323): App\Models\Buyer\BuyerModel->get_product_list_storewise('STORE_2498081A-...')
+#6 E:\xampp\htdocs\ecommerce\system\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->product_list_storewise()
+#7 E:\xampp\htdocs\ecommerce\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+#8 E:\xampp\htdocs\ecommerce\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\xampp\htdocs\ecommerce\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 E:\xampp\htdocs\ecommerce\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 E:\xampp\htdocs\ecommerce\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-07-17 12:33:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'state' in 'where clause'
+[Method: POST, Route: Buyer/product-list-storewise]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = :state:
+AND `storeId` = :storeId:', [...], false)
+ 2 APPPATH\Models\Buyer\BuyerModel.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Buyer\BuyerController.php(323): App\Models\Buyer\BuyerModel->get_product_list_storewise('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->product_list_storewise()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 12:33:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'state' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = \'ACTIVE\'
+AND `storeId` = \'STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = \'ACTIVE\'
+AND `storeId` = \'STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = :state:
+AND `storeId` = :storeId:', [...], false)
+ 4 APPPATH\Models\Buyer\BuyerModel.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Buyer\BuyerController.php(323): App\Models\Buyer\BuyerModel->get_product_list_storewise('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->product_list_storewise()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-17 12:33:35 --> [Caused by] mysqli_sql_exception: Unknown column 'state' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = \'ACTIVE\'
+AND `storeId` = \'STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = \'ACTIVE\'
+AND `storeId` = \'STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = \'ACTIVE\'
+AND `storeId` = \'STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `uId` as `productId`, `name`, `brandName`, `title`, `description`, `color`, `mrpPrice`, `sellingPrice`
+FROM `product`
+WHERE `state` = :state:
+AND `storeId` = :storeId:', [...], false)
+ 5 APPPATH\Models\Buyer\BuyerModel.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Buyer\BuyerController.php(323): App\Models\Buyer\BuyerModel->get_product_list_storewise('STORE_2498081A-1D98-4C03-8207-6CAA1171709D_1721194714')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buyer\BuyerController->product_list_storewise()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buyer\BuyerController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-07-17 12:34:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Buyer\BuyerController::$validation is deprecated in APPPATH\Controllers\Buyer\Common.php on line 8.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Buyer\Common->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
