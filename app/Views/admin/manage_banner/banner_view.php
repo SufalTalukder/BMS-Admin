@@ -101,7 +101,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">
                                 <span id="addBannerSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
-                                <span class="saveBannerUser" id="saveBannerText">Save</span>
+                                <span class="saveBanner" id="saveBannerText">Save</span>
                             </button>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
 
 <script type="text/javascript">
     // Add banner
-    $(document).on('click', '.saveBannerUser', function() {
+    $(document).on('click', '.saveBanner', function() {
 
         const files = $('#addImageFile')[0].files;
         let formData = new FormData();
@@ -203,22 +203,21 @@
     });
 
     // Delete banner
-    function deleteBanner(BannerId) {
+    function deleteBanner(bannerId) {
         $('#deleteModal').modal('show');
+
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
-                url: "<?= base_url('delete-banner') ?>",
-                method: "POST",
-                data: {
-                    BannerId: BannerId
-                },
+                url: "<?= base_url('delete-banners') ?>",
+                type: "POST",
                 dataType: "json",
+                data: {
+                    bannerIds: [bannerId]
+                },
                 success: function(response) {
                     if (response.status) {
-                        showToast("Banner user deleted successfully!", "success");
-                        setTimeout(function() {
-                            location.reload();
-                        }, 1000);
+                        showToast("Banner deleted successfully!", "success");
+                        setTimeout(() => location.reload(), 1000);
                     } else {
                         showToast(response.message, "error");
                     }

@@ -89,4 +89,37 @@ class BannerModel
             ];
         }
     }
+
+    public function deleteBannerAJAX(array $bannerIds)
+    {
+        $client  = \Config\Services::curlrequest();
+        $session = session();
+
+        $deleteBannerAPI = LOCALHOST_8083 . REQUEST_AUTH_MAPPING . '/delete-multi-images';
+
+        try {
+            $response = $client->delete($deleteBannerAPI, [
+                'headers' => [
+                    'authToken'     => $session->get('admin_auth_token'),
+                    'x-api-key'     => XAPIKEY,
+                    'x-api-secret'  => XAPISECRET,
+                    'Accept'        => 'application/json'
+                ],
+                'json' => array_map('intval', $bannerIds),
+                'timeout' => 10
+            ]);
+
+            $result = json_decode($response->getBody());
+
+            return [
+                'status'  => isset($result->status) && $result->status === 'success',
+                'message' => $result->message ?? 'Banner(s) deleted successfully.'
+            ];
+        } catch (\Throwable $e) {
+            return [
+                'status'  => false,
+                'message' => 'Authentication server is unreachable.'
+            ];
+        }
+    }
 }

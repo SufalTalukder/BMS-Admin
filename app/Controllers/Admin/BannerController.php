@@ -3,17 +3,20 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\Admin\Common;
-use \App\Models\Admin\BannerModel;
+use App\Models\Admin\BannerModel;
+use App\Models\Admin\AuthUserModel;
 
 class BannerController extends Common
 {
     protected $session;
     protected $bannerModel;
+    protected $authUserModel;
 
     public function __construct()
     {
-        $this->session = session();
-        $this->bannerModel = new BannerModel();
+        $this->session          = session();
+        $this->bannerModel      = new BannerModel();
+        $this->authUserModel    = new AuthUserModel();
     }
 
     public function banner_list_view()
@@ -24,6 +27,10 @@ class BannerController extends Common
 
         $data['meta_title'] = 'Banner Service | ' . PROJECT_NAME;
         $data['auth_user_details'] = $this->session->get('admin_auth_user_details');
+        $data['auth_user_details_by_api'] = $this->authUserModel->getAuthUserDetailsAJAX(
+            $data['auth_user_details']->authUserId
+        ) ?? null;
+        $data['extracted_auth_user_details'] = $data['auth_user_details_by_api']->content;
 
         return view('admin/template/header', $data)
             . view('admin/template/sidebar')
@@ -99,7 +106,7 @@ class BannerController extends Common
                 <td>' . $eachBanner->appBannerCreatedAt . '</td>
                 <td>
                     <button class="btn btn-sm btn-danger rounded-pill"
-                        onclick="deleteBanner(\'' . $eachBanner->authUserInfo->authUserId . '\')">
+                        onclick="deleteBanner(\'' . $eachBanner->appBannerId . '\')">
                         🗑
                     </button>
                 </td>
@@ -115,6 +122,24 @@ class BannerController extends Common
 
     public function deleteBannerAJAX()
     {
-        // Logic to delete a banner
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Invalid request!'
+            ]);
+        }
+
+        $bannerIds = $this->request->getPost('bannerIds');
+
+        if (empty($bannerIds) || !is_array($bannerIds)) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Banner IDs are required!'
+            ]);
+        }
+
+        return $this->response->setJSON(
+            $this->bannerModel->deleteBannerAJAX($bannerIds)
+        );
     }
 }

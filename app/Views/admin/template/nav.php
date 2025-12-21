@@ -10,13 +10,22 @@
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown pe-3">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <img src="<?= !empty($auth_user_details->authUserImage) ? $auth_user_details->authUserImage : base_url('assets/img/admin.jfif') ?>" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= !empty($auth_user_details->authUserName) ? $auth_user_details->authUserName : "NA"; ?></span>
+                    <img src="<?= !empty($extracted_auth_user_details->authUserImage) ? $extracted_auth_user_details->authUserImage : base_url('assets/img/admin.jfif') ?>" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= !empty($extracted_auth_user_details->authUserName) ? $extracted_auth_user_details->authUserName : "NA"; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <span><?= !empty($auth_user_details->authUserPhoneNumber) ? $auth_user_details->authUserPhoneNumber : "NA"; ?></span>
-                        <h6><?= !empty($auth_user_details->authUserEmailAddress) ? $auth_user_details->authUserEmailAddress : "NA"; ?></h6>
+                        <h6><?= !empty($extracted_auth_user_details->authUserName) ? $extracted_auth_user_details->authUserName : "NA"; ?></h6>
+                        <span><?= !empty($extracted_auth_user_details->authUserPhoneNumber) ? $extracted_auth_user_details->authUserPhoneNumber : "NA"; ?></span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/profile-service') ?>">
+                            <i class="bi bi-person"></i>
+                            <span>My Profile</span>
+                        </a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

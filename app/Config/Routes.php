@@ -28,6 +28,15 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Banner View Routes
     $routes->get('banners-service', 'BannerController::banner_list_view');
+
+    // Language Settings View Routes
+    $routes->get('language-service', 'LanguageController::language_settings_view');
+
+    // Auth Profile View Routes
+    $routes->get('profile-service', 'AuthUserController::auth_profile_view');
+
+    // Category View Routes
+    $routes->get('category-service', 'CategoryController::category_view');
 });
 
 // ====================================================================================================== //
@@ -50,4 +59,18 @@ $routes->get('fetch-auth-activity', 'Admin\AuthActivityController::getAllAuthAct
 // Banner User APIs
 $routes->post('add-banner', 'Admin\BannerController::addBannerAJAX');
 $routes->get('fetch-banners', 'Admin\BannerController::getAllBannersAJAX');
-$routes->post('delete-banner', 'Admin\BannerController::deleteBannerAJAX');
+$routes->post('delete-banners', 'Admin\BannerController::deleteBannerAJAX');
+
+// Language Settings APIs
+$routes->post('add-language', 'Admin\LanguageController::addLanguageAJAX');
+$routes->get('fetch-languages', 'Admin\LanguageController::getLanguagesAJAX');
+$routes->post('get-language-details', 'Admin\LanguageController::getLanguageDetailsAJAX');
+$routes->post('update-language', 'Admin\LanguageController::updateLanguageAJAX');
+$routes->post('delete-language', 'Admin\LanguageController::deleteLanguageAJAX');
+
+// Category APIs
+$routes->post('add-category', 'Admin\CategoryController::addCategoryAJAX');
+$routes->get('fetch-categories', 'Admin\CategoryController::getAllCategoriesAJAX');
+$routes->post('get-category-details', 'Admin\CategoryController::getCategoryDetailsAJAX');
+$routes->post('update-category', 'Admin\CategoryController::updateCategoryAJAX');
+$routes->post('delete-category', 'Admin\CategoryController::deleteCategoryAJAX');

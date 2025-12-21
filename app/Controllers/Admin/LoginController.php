@@ -23,7 +23,7 @@ class LoginController extends Common
             return redirect()->to('/admin/activity-service');
         }
 
-        $data['meta_title'] = 'Login | ' . PROJECT_NAME;
+        $data['meta_title'] = 'Login Service | ' . PROJECT_NAME;
 
         return view('admin/template/header', $data)
             . view('admin/manage_auth_login/auth_login_view')

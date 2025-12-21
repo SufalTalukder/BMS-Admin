@@ -117,3 +117,9 @@ define('LOCALHOST_8082', 'http://localhost:8082');
 
 // BANNER SERVICE
 define('LOCALHOST_8083', 'http://localhost:8083');
+
+// LANGUAGE SERVICE
+define('LOCALHOST_8088', 'http://localhost:8088');
+
+// CATEGORY SERVICE
+define('LOCALHOST_8084', 'http://localhost:8084');
