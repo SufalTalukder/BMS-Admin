@@ -42,6 +42,7 @@
 </main>
 
 <script type="text/javascript">
+  // Submit
   $(document).on('click', '.submitLoginBtn', function(e) {
     e.preventDefault();
 
@@ -83,4 +84,33 @@
       }
     });
   });
+
+  // Toast Notification
+  function showToast(message, type = 'info', duration = 2000) {
+    let backgroundColor;
+    switch (type) {
+      case 'success':
+        backgroundColor = "linear-gradient(to right, #00b09b, #96c93d)";
+        break;
+      case 'error':
+        backgroundColor = "linear-gradient(to right, #ff0000, #ff6666)";
+        break;
+      case 'warning':
+        backgroundColor = "linear-gradient(to right, #f0ad4e, #f5e79e)";
+        break;
+      case 'info':
+      default:
+        backgroundColor = "linear-gradient(to right, #5bc0de, #0dcaf0)";
+        break;
+    }
+
+    Toastify({
+      text: message,
+      duration: duration,
+      gravity: "top",
+      position: "right",
+      backgroundColor: backgroundColor,
+      stopOnFocus: true
+    }).showToast();
+  }
 </script>

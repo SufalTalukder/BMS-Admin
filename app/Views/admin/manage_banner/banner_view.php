@@ -1,37 +1,3 @@
-<style>
-    #basicModal .modal-dialog {
-        max-width: 600px;
-        width: 100%;
-    }
-
-    #basicModal .modal-content {
-        padding: 20px;
-    }
-
-    .modal-body {
-        max-height: 400px;
-        overflow-y: auto;
-
-    }
-
-    .custom-modal-header {
-        background-color: #0bcbe2;
-        /* Dark Red Background */
-        color: white;
-        /* White Text Color */
-    }
-
-    .custom-modal-header .modal-title {
-        font-weight: bold;
-        /* Bold Text */
-    }
-
-    .red-bold {
-        color: red;
-        font-weight: bold;
-    }
-</style>
-
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
         <h1 class="mb-0">Manage Banners</h1>
@@ -134,7 +100,7 @@
 </main>
 
 <script type="text/javascript">
-    // Add banner
+    // Add
     $(document).on('click', '.saveBanner', function() {
 
         const files = $('#addImageFile')[0].files;
@@ -182,7 +148,7 @@
         });
     });
 
-    // Fetch and display banner
+    // Get All
     $(document).ready(function() {
         $.ajax({
             url: "<?= base_url('fetch-banners') ?>",
@@ -202,7 +168,7 @@
         });
     });
 
-    // Delete banner
+    // Delete
     function deleteBanner(bannerId) {
         $('#deleteModal').modal('show');
 

@@ -2,7 +2,6 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\BaseController;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\LoginModel;
 
@@ -26,8 +25,7 @@ class LoginController extends Common
         $data['meta_title'] = 'Login Service | ' . PROJECT_NAME;
 
         return view('admin/template/header', $data)
-            . view('admin/manage_auth_login/auth_login_view')
-            . view('admin/template/footer');
+            . view('admin/manage_auth_login/auth_login_view');
     }
 
     public function submitLoginAJAX()

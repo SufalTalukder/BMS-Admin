@@ -1,37 +1,3 @@
-<style>
-    #basicModal .modal-dialog {
-        max-width: 600px;
-        width: 100%;
-    }
-
-    #basicModal .modal-content {
-        padding: 20px;
-    }
-
-    .modal-body {
-        max-height: 400px;
-        overflow-y: auto;
-
-    }
-
-    .custom-modal-header {
-        background-color: #0bcbe2;
-        /* Dark Red Background */
-        color: white;
-        /* White Text Color */
-    }
-
-    .custom-modal-header .modal-title {
-        font-weight: bold;
-        /* Bold Text */
-    }
-
-    .red-bold {
-        color: red;
-        font-weight: bold;
-    }
-</style>
-
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
         <h1 class="mb-0">Manage languages</h1>
@@ -125,24 +91,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="card">
-                        <div class="card-body">
-                            <input type="hidden" id="updateLanguageId" name="updateLanguageId" value="">
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="updateLanguageName" id="updateLanguageName" maxlength="100" autocomplete="new-name" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
-                                <div class="col-sm-12">
-                                    <select class="form-select" name="updateLanguageActive" id="updateLanguageActive" required>
-                                        <option value="">-- Select --</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="card-body" id="editLanguageBody">
+                            <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">
@@ -180,7 +130,7 @@
 </main>
 
 <script type="text/javascript">
-    // Add Language user
+    // Add
     $(document).on('click', '.saveLanguage', function() {
 
         const addLanguageName = $('#addLanguageName').val().trim();
@@ -235,7 +185,7 @@
         });
     });
 
-    // Fetch and display Language users
+    // Get All
     $(document).ready(function() {
         $.ajax({
             url: "<?= base_url('fetch-languages') ?>",
@@ -255,7 +205,7 @@
         });
     });
 
-    // Open edit modal and populate data
+    // Get
     function getLanguage(getLanguageId) {
         $.ajax({
             url: "<?= base_url('get-language-details') ?>",
@@ -266,9 +216,7 @@
             dataType: "json",
             success: function(response) {
                 if (response.status) {
-                    $('#updateLanguageId').val(getLanguageId);
-                    $('#updateLanguageName').val(response.content.languageName);
-                    $('#updateLanguageActive').val(response.content.languageActive);
+                    $('#editLanguageBody').html(response.html);
                     $('#editModal').modal('show');
                 } else {
                     showToast(response.message, "error");
@@ -280,7 +228,7 @@
         });
     }
 
-    // Update Language user
+    // Update
     $(document).on('click', '.updateLanguage', function() {
 
         const updateLanguageId = $('#updateLanguageId').val();
@@ -337,7 +285,7 @@
         });
     });
 
-    // Delete Language user
+    // Delete
     function deleteLanguage(deleteLanguageId) {
         $('#deleteModal').modal('show');
         $('#confirmDelete').off('click').on('click', function() {

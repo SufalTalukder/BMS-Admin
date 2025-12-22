@@ -1,37 +1,3 @@
-<style>
-    #basicModal .modal-dialog {
-        max-width: 600px;
-        width: 100%;
-    }
-
-    #basicModal .modal-content {
-        padding: 20px;
-    }
-
-    .modal-body {
-        max-height: 400px;
-        overflow-y: auto;
-
-    }
-
-    .custom-modal-header {
-        background-color: #0bcbe2;
-        /* Dark Red Background */
-        color: white;
-        /* White Text Color */
-    }
-
-    .custom-modal-header .modal-title {
-        font-weight: bold;
-        /* Bold Text */
-    }
-
-    .red-bold {
-        color: red;
-        font-weight: bold;
-    }
-</style>
-
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
         <h1 class="mb-0">Track Your Activity</h1>
@@ -69,7 +35,7 @@
 </main>
 
 <script type="text/javascript">
-    // Fetch and display action logs
+    // Get All
     $(document).ready(function() {
         $.ajax({
             url: "<?= base_url('fetch-auth-activity') ?>",

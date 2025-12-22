@@ -72,7 +72,6 @@ class BannerController extends Common
         }
 
         $result = $this->bannerModel->getAllBannersAJAX();
-
         if (
             empty($result) ||
             !isset($result->status) ||
@@ -87,31 +86,26 @@ class BannerController extends Common
 
         $html = '';
         $i = 1;
-
         foreach ($result->content as $eachBanner) {
+            $img = !empty($eachBanner->appBannerImage) ? base_url($eachBanner->appBannerImage) : base_url('assets/img/admin.jfif');
 
-            $img = !empty($eachBanner->appBannerImage)
-                ? base_url($eachBanner->appBannerImage)
-                : base_url('assets/img/admin.jfif');
-
-            $html .= '
-            <tr>
-                <td>' . "#" . $i++ . '</td>
-                <td>
-                    <a href="' . $img . '" target="_blank">
-                        <img src="' . $img . '" style="height:60px; width:90px;">
-                    </a>
-                </td>
-                <td>' . esc($eachBanner->authUserInfo->authUserName) . '</td>
-                <td>' . $eachBanner->appBannerCreatedAt . '</td>
-                <td>
-                    <button class="btn btn-sm btn-danger rounded-pill"
-                        onclick="deleteBanner(\'' . $eachBanner->appBannerId . '\')">
-                        🗑
-                    </button>
-                </td>
-            </tr>
-        ';
+            $html .=
+                <<<HTML
+                    <tr>
+                        <td>#{$i}</td>
+                        <td>
+                            <a href="{$img}" target="_blank">
+                                <img src="{$img}" style="height:60px; width:90px;">
+                            </a>
+                        </td>
+                        <td>{esc($eachBanner->authUserInfo->authUserName)}</td>
+                        <td>{$eachBanner->appBannerCreatedAt}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteBanner('{$eachBanner->appBannerId}')">🗑</button>
+                        </td>
+                    </tr>
+                HTML;
+            $i++;
         }
 
         return $this->response->setJSON([

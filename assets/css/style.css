@@ -1231,3 +1231,36 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+/* ADMIN PAGE INNER CSS - 22.12.25 */
+#basicModal .modal-dialog {
+  max-width: 600px;
+  width: 100%;
+}
+
+#basicModal .modal-content {
+  padding: 20px;
+}
+
+.modal-body {
+  max-height: 400px;
+  overflow-y: auto;
+
+}
+
+.custom-modal-header {
+  background-color: #0bcbe2;
+  /* Dark Red Background */
+  color: white;
+  /* White Text Color */
+}
+
+.custom-modal-header .modal-title {
+  font-weight: bold;
+  /* Bold Text */
+}
+
+.red-bold {
+  color: red;
+  font-weight: bold;
+}

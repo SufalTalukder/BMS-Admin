@@ -1,37 +1,3 @@
-<style>
-  #basicModal .modal-dialog {
-    max-width: 600px;
-    width: 100%;
-  }
-
-  #basicModal .modal-content {
-    padding: 20px;
-  }
-
-  .modal-body {
-    max-height: 400px;
-    overflow-y: auto;
-
-  }
-
-  .custom-modal-header {
-    background-color: #0bcbe2;
-    /* Dark Red Background */
-    color: white;
-    /* White Text Color */
-  }
-
-  .custom-modal-header .modal-title {
-    font-weight: bold;
-    /* Bold Text */
-  }
-
-  .red-bold {
-    color: red;
-    font-weight: bold;
-  }
-</style>
-
 <main id="main" class="main">
   <div class="pagetitle d-flex justify-content-between align-items-center">
     <h1 class="mb-0">Manage Auth Users</h1>
@@ -162,61 +128,8 @@
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="card-body">
-              <input type="hidden" id="updateAuthId" name="updateAuthId" value="">
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="updateAuthName" id="updateAuthName" maxlength="100" autocomplete="new-name" required>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Email Address *</label>
-                <div class="col-sm-12">
-                  <input type="email" class="form-control" name="updateAuthEmail" id="updateAuthEmail" maxlength="50" autocomplete="new-email" required>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Phone Number *</label>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="updatePhoneNumber" id="updatePhoneNumber" minlength="10" maxlength="10" autocomplete="new-phone-number" required>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Password</label>
-                <div class="col-sm-12">
-                  <input type="password" class="form-control" name="updatePassword" id="updatePassword" maxlength="50" autocomplete="new-password" required>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Type *</label>
-                <div class="col-sm-12">
-                  <select class="form-select" name="updateAuthType" id="updateAuthType" required>
-                    <option value="">-- Select --</option>
-                    <option value="SUPER_ADMIN">Super Admin</option>
-                    <option value="ADMIN">Admin</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
-                <div class="col-sm-12">
-                  <select class="form-select" name="updateAuthActive" id="updateAuthActive" required>
-                    <option value="">-- Select --</option>
-                    <option value="YES">Yes</option>
-                    <option value="NO">No</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputFile" class="col-sm-12 col-form-label">Upload Image</label>
-                <div class="col-sm-12">
-                  <input type="file" class="form-control" name="image" id="updateImageFile" accept="png, jpg, jpeg">
-                  <center>
-                    <img id="previousAuthImage" src="" alt="Image" style="max-width: 100px; max-height: 100px; margin-top: 10px;">
-                  </center>
-                </div>
-              </div>
+            <div class="card-body" id="editAuthBody">
+              <!-- dynamic content will be loaded -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">
@@ -254,7 +167,7 @@
 </main>
 
 <script type="text/javascript">
-  // Add auth user
+  // Add
   $(document).on('click', '.saveAuthUser', function() {
 
     const addAuthName = $('#addAuthName').val().trim();
@@ -356,7 +269,7 @@
     });
   });
 
-  // Fetch and display auth users
+  // Get All
   $(document).ready(function() {
     $.ajax({
       url: "<?= base_url('fetch-auth-users') ?>",
@@ -376,7 +289,7 @@
     });
   });
 
-  // Open edit modal and populate data
+  // Get
   function getAuth(authId) {
     $.ajax({
       url: "<?= base_url('get-auth-user-details') ?>",
@@ -387,14 +300,7 @@
       dataType: "json",
       success: function(response) {
         if (response.status) {
-          $('#updateAuthId').val(authId);
-          $('#updateAuthName').val(response.content.authUserName);
-          $('#updateAuthEmail').val(response.content.authUserEmailAddress);
-          $('#updatePhoneNumber').val(response.content.authUserPhoneNumber);
-          $('#updatePassword').val('');
-          $('#updateAuthType').val(response.content.authUserType);
-          $('#updateAuthActive').val(response.content.authUserActive);
-          $('#previousAuthImage').attr('src', response.content.authUserImage ? response.content.authUserImage : '<?= base_url('assets/img/admin.jfif') ?>');
+          $('#editAuthBody').html(response.html);
           $('#editModal').modal('show');
         } else {
           showToast(response.message, "error");
@@ -406,7 +312,7 @@
     });
   }
 
-  // Update auth user
+  // Update
   $(document).on('click', '.updateAuthUser', function() {
 
     const authUserId = $('#updateAuthId').val();
@@ -505,7 +411,7 @@
     });
   });
 
-  // Delete auth user
+  // Delete
   function deleteAuth(authId) {
     $('#deleteModal').modal('show');
     $('#confirmDelete').off('click').on('click', function() {

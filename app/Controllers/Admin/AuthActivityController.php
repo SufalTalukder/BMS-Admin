@@ -11,12 +11,14 @@ class AuthActivityController extends Common
     protected $session;
     protected $authActivityModel;
     protected $authUserModel;
+    protected $customHelper;
 
     public function __construct()
     {
         $this->session           = session();
         $this->authActivityModel = new AuthActivityModel();
         $this->authUserModel     = new AuthUserModel();
+        $this->customHelper      = new \CustomHelper();
     }
 
     public function auth_activity_list_view()
@@ -49,7 +51,6 @@ class AuthActivityController extends Common
         }
 
         $result = $this->authActivityModel->getAllAuthActivityAJAX();
-
         if (
             empty($result) ||
             !isset($result->status) ||
@@ -58,42 +59,27 @@ class AuthActivityController extends Common
         ) {
             return $this->response->setJSON([
                 'status' => false,
-                'message' => 'No action log(s) found!'
+                'message' => 'No activitie(s) found!'
             ]);
         }
 
         $html = '';
         $i = 1;
-
         foreach ($result->content as $activity) {
+            list($methodText, $methodClass) = $this->customHelper->getMethodDetails($activity->actionLogMethod);
 
-            if ($activity->actionLogMethod === 'POST') {
-                $methodText  = 'POST';
-                $methodClass = 'badge bg-warning rounded';
-            } else if ($activity->actionLogMethod === 'GET') {
-                $methodText  = 'GET';
-                $methodClass = 'badge bg-success rounded';
-            } else if ($activity->actionLogMethod === 'DELETE') {
-                $methodText  = 'DELETE';
-                $methodClass = 'badge bg-danger rounded';
-            } else if ($activity->actionLogMethod === 'PUT') {
-                $methodText  = 'PUT';
-                $methodClass = 'badge bg-info rounded';
-            } else {
-                $methodText  = 'PATCH';
-                $methodClass = 'badge bg-secondary rounded';
-            }
-
-            $html .= '
-            <tr>
-                <td>' . "#" . $i++ . '</td>
-                <td>
-                    <span class="' . $methodClass . '">' . $methodText . '</span>
-                </td>
-                <td>' . esc($activity->actionLogMessage) . '</td>
-                <td>' . $activity->actionLogCreatedAt . '</td>
-            </tr>
-        ';
+            $html .=
+                <<<HTML
+                    <tr>
+                        <td>#{$i}</td>
+                        <td>
+                            <span class="{$methodClass}">{$methodText}</span>
+                        </td>
+                        <td>{esc($activity->actionLogMessage)}</td>
+                        <td>{$activity->actionLogCreatedAt}</td>
+                    </tr>
+                HTML;
+            $i++;
         }
 
         return $this->response->setJSON([

@@ -199,7 +199,7 @@
 </main>
 
 <script type="text/javascript">
-    // Update auth user
+    // Update
     $(document).on('click', '.updateAuthUser', function() {
 
         const authUserId = $('#updateAuthId').val();

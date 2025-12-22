@@ -11,12 +11,14 @@ class CategoryController extends Common
     protected $session;
     protected $categoryModel;
     protected $authUserModel;
+    protected $customHelper;
 
     public function __construct()
     {
         $this->session        = session();
         $this->categoryModel  = new CategoryModel();
         $this->authUserModel  = new AuthUserModel();
+        $this->customHelper   = new \CustomHelper();
     }
 
     public function category_view()
@@ -68,7 +70,6 @@ class CategoryController extends Common
         }
 
         $result = $this->categoryModel->getAllCategoriesAJAX();
-
         if (
             empty($result) ||
             !isset($result->status) ||
@@ -83,39 +84,33 @@ class CategoryController extends Common
 
         $html = '';
         $i = 1;
-
         foreach ($result->content as $eachCategory) {
+            list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachCategory->categoryActive);
 
-            if ($eachCategory->categoryActive === 'YES') {
-                $statusText  = 'Yes';
-                $statusClass = 'badge bg-primary rounded';
-            } else {
-                $statusText  = 'No';
-                $statusClass = 'badge bg-warning rounded';
-            }
-
-            $html .= '
-            <tr>
-                <td>' . "#" . $i++ . '</td>
-                <td>' . esc($eachCategory->categoryName) . '</td>
-                <td>' . $eachCategory->categoryCreatedAt . '</td>
-                <td>' . $eachCategory->categoryUpdatedAt . '</td>
-                <td>
-                    <span class="' . $statusClass . '">' . $statusText . '</span>
-                </td>
-                <td>' . esc($eachCategory->authUserInfo->authUserName) . '</td>
-                <td>
-                    <button class="btn btn-sm btn-info rounded-pill"
-                        onclick="getCategory(\'' . $eachCategory->categoryId . '\')">
-                        ✏️
-                    </button>
-                    <button class="btn btn-sm btn-danger rounded-pill"
-                        onclick="deleteCategory(\'' . $eachCategory->categoryId . '\')">
-                        🗑
-                    </button>
-                </td>
-            </tr>
-        ';
+            $html .=
+                <<<HTML
+                    <tr>
+                        <td>#{$i}</td>
+                        <td>{esc($eachCategory->categoryName)}</td>
+                        <td>{$eachCategory->categoryCreatedAt}</td>
+                        <td>{$eachCategory->categoryUpdatedAt}</td>
+                        <td>
+                            <span class="{$statusClass}">{$statusText}</span>
+                        </td>
+                        <td>{esc($eachCategory->authUserInfo->authUserName)}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info rounded-pill"
+                                    onclick="getCategory('{$eachCategory->categoryId}')">
+                                ✏️
+                            </button>
+                            <button class="btn btn-sm btn-danger rounded-pill"
+                                    onclick="deleteCategory('{$eachCategory->categoryId}')">
+                                🗑
+                            </button>
+                        </td>
+                    </tr>
+                HTML;
+            $i++;
         }
 
         return $this->response->setJSON([
@@ -141,9 +136,49 @@ class CategoryController extends Common
             ]);
         }
 
-        return $this->response->setJSON(
-            $this->categoryModel->getCategoryDetailsAJAX($getCategoryId)
-        );
+        $getCategoryId = htmlspecialchars(strip_tags($getCategoryId));
+        $result = $this->categoryModel->getCategoryDetailsAJAX($getCategoryId);
+        if (
+            empty($result) ||
+            !isset($result->status) ||
+            $result->status !== 'success' ||
+            empty($result->content)
+        ) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Category details not found.'
+            ]);
+        }
+
+        $categoryId = htmlspecialchars($result->content->categoryId);
+        $categoryName = htmlspecialchars($result->content->categoryName);
+        $categoryActive = htmlspecialchars($result->content->categoryActive);
+
+        $html =
+            <<<HTML
+                <input type="hidden" id="updateCategoryId" name="updateCategoryId" value="{$categoryId}">
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" name="updateCategoryName" id="updateCategoryName" value="{$categoryName}" maxlength="100" autocomplete="new-name" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
+                    <div class="col-sm-12">
+                        <select class="form-select" name="updateCategoryActive" id="updateCategoryActive" required>
+                            <option value="">-- Select --</option>
+                            <option value="YES" {$this->customHelper->getStatusDetails($categoryActive, 'YES')}>Yes</option>
+                            <option value="NO" {$this->customHelper->getStatusDetails($categoryActive, 'NO')}>No</option>
+                        </select>
+                    </div>
+                </div>
+            HTML;
+
+        return $this->response->setJSON([
+            'status' => true,
+            'html'   => $html
+        ]);
     }
 
     public function updateCategoryAJAX()

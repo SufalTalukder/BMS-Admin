@@ -1,37 +1,3 @@
-<style>
-    #basicModal .modal-dialog {
-        max-width: 600px;
-        width: 100%;
-    }
-
-    #basicModal .modal-content {
-        padding: 20px;
-    }
-
-    .modal-body {
-        max-height: 400px;
-        overflow-y: auto;
-
-    }
-
-    .custom-modal-header {
-        background-color: #0bcbe2;
-        /* Dark Red Background */
-        color: white;
-        /* White Text Color */
-    }
-
-    .custom-modal-header .modal-title {
-        font-weight: bold;
-        /* Bold Text */
-    }
-
-    .red-bold {
-        color: red;
-        font-weight: bold;
-    }
-</style>
-
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
         <h1 class="mb-0">Manage Categories</h1>
@@ -125,24 +91,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="card">
-                        <div class="card-body">
-                            <input type="hidden" id="updateCategoryId" name="updateCategoryId" value="">
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="updateCategoryName" id="updateCategoryName" maxlength="100" autocomplete="new-name" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
-                                <div class="col-sm-12">
-                                    <select class="form-select" name="updateCategoryActive" id="updateCategoryActive" required>
-                                        <option value="">-- Select --</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="card-body" id="editCategoryBody">
+                            <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">
@@ -180,7 +130,7 @@
 </main>
 
 <script type="text/javascript">
-    // Add Category user
+    // Add
     $(document).on('click', '.saveCategory', function() {
 
         const addCategoryName = $('#addCategoryName').val().trim();
@@ -235,7 +185,7 @@
         });
     });
 
-    // Fetch and display Category users
+    // Get All
     $(document).ready(function() {
         $.ajax({
             url: "<?= base_url('fetch-categories') ?>",
@@ -255,7 +205,7 @@
         });
     });
 
-    // Open edit modal and populate data
+    // Get
     function getCategory(getCategoryId) {
         $.ajax({
             url: "<?= base_url('get-category-details') ?>",
@@ -266,9 +216,7 @@
             dataType: "json",
             success: function(response) {
                 if (response.status) {
-                    $('#updateCategoryId').val(getCategoryId);
-                    $('#updateCategoryName').val(response.content.categoryName);
-                    $('#updateCategoryActive').val(response.content.categoryActive);
+                    $('#editCategoryBody').html(response.html);
                     $('#editModal').modal('show');
                 } else {
                     showToast(response.message, "error");
@@ -280,7 +228,7 @@
         });
     }
 
-    // Update Category user
+    // Update
     $(document).on('click', '.updateCategory', function() {
 
         const updateCategoryId = $('#updateCategoryId').val();
@@ -337,7 +285,7 @@
         });
     });
 
-    // Delete category
+    // Delete
     function deleteCategory(deleteCategoryId) {
         $('#deleteModal').modal('show');
         $('#confirmDelete').off('click').on('click', function() {

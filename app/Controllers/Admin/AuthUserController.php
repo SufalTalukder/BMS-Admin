@@ -9,11 +9,13 @@ class AuthUserController extends Common
 {
     protected $session;
     protected $authUserModel;
+    protected $customHelper;
 
     public function __construct()
     {
         $this->session          = session();
         $this->authUserModel    = new AuthUserModel();
+        $this->customHelper     = new \CustomHelper();
     }
 
     public function auth_user_list_view()
@@ -99,7 +101,6 @@ class AuthUserController extends Common
         }
 
         $result = $this->authUserModel->getAllAuthUsersAJAX();
-
         if (
             empty($result) ||
             !isset($result->status) ||
@@ -108,66 +109,45 @@ class AuthUserController extends Common
         ) {
             return $this->response->setJSON([
                 'status' => false,
-                'message' => 'No auth users found!'
+                'message' => 'No auth user(s) found!'
             ]);
         }
 
         $html = '';
         $i = 1;
-
         foreach ($result->content as $eachAuthUser) {
+            $img = !empty($eachAuthUser->authUserImage) ? base_url($eachAuthUser->authUserImage) : base_url('assets/img/admin.jfif');
 
-            $img = !empty($eachAuthUser->authUserImage)
-                ? base_url($eachAuthUser->authUserImage)
-                : base_url('assets/img/admin.jfif');
+            list($typeText, $typeClass) = $this->customHelper->getUserTypeDetails($eachAuthUser->authUserType);
+            list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachAuthUser->authUserActive);
 
-            if ($eachAuthUser->authUserType === 'SUPER_ADMIN') {
-                $typeText  = 'Super Admin';
-                $typeClass = 'badge bg-success rounded';
-            } else {
-                $typeText  = 'Admin';
-                $typeClass = 'badge bg-secondary rounded';
-            }
-
-            if ($eachAuthUser->authUserActive === 'YES') {
-                $statusText  = 'Yes';
-                $statusClass = 'badge bg-primary rounded';
-            } else {
-                $statusText  = 'No';
-                $statusClass = 'badge bg-warning rounded';
-            }
-
-            $html .= '
-            <tr>
-                <td>' . "#" . $i++ . '</td>
-                <td>
-                    <a href="' . $img . '" target="_blank">
-                        <img src="' . $img . '" style="height:60px;width:90px;">
-                    </a>
-                </td>
-                <td>' . esc($eachAuthUser->authUserName) . '</td>
-                <td>' . esc($eachAuthUser->authUserEmailAddress) . '</td>
-                <td>' . esc($eachAuthUser->authUserPhoneNumber) . '</td>
-                <td>' . $eachAuthUser->authUserCreatedAt . '</td>
-                <td>' . $eachAuthUser->authUserUpdatedAt . '</td>
-                <td>
-                    <span class="' . $typeClass . '">' . $typeText . '</span>
-                </td>
-                <td>
-                    <span class="' . $statusClass . '">' . $statusText . '</span>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-info rounded-pill"
-                        onclick="getAuth(\'' . $eachAuthUser->authUserId . '\')">
-                        ✏️
-                    </button>
-                    <button class="btn btn-sm btn-danger rounded-pill"
-                        onclick="deleteAuth(\'' . $eachAuthUser->authUserId . '\')">
-                        🗑
-                    </button>
-                </td>
-            </tr>
-        ';
+            $html .=
+                <<<HTML
+                    <tr>
+                        <td>#{$i}</td>
+                        <td>
+                            <a href="{$img}" target="_blank">
+                                <img src="{$img}" style="height:60px;width:90px;">
+                            </a>
+                        </td>
+                        <td>{esc($eachAuthUser->authUserName)}</td>
+                        <td>{esc($eachAuthUser->authUserEmailAddress)}</td>
+                        <td>{esc($eachAuthUser->authUserPhoneNumber)}</td>
+                        <td>{$eachAuthUser->authUserCreatedAt}</td>
+                        <td>{$eachAuthUser->authUserUpdatedAt}</td>
+                        <td>
+                            <span class="{$typeClass}">{$typeText}</span>
+                        </td>
+                        <td>
+                            <span class="{$statusClass}">{$statusText}</span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-info rounded-pill" onclick="getAuth('{$eachAuthUser->authUserId}')">✏️</button>
+                            <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteAuth('{$eachAuthUser->authUserId}')">🗑</button>
+                        </td>
+                    </tr>
+                HTML;
+            $i++;
         }
 
         return $this->response->setJSON([
@@ -186,6 +166,7 @@ class AuthUserController extends Common
         }
 
         $authId = $this->request->getPost('authId');
+        $authId = htmlspecialchars(strip_tags($authId));
         if (!$authId) {
             return $this->response->setJSON([
                 'status' => false,
@@ -193,9 +174,89 @@ class AuthUserController extends Common
             ]);
         }
 
-        return $this->response->setJSON(
-            $this->authUserModel->getAuthUserDetailsAJAX($authId)
-        );
+        $result = $this->authUserModel->getAuthUserDetailsAJAX($authId);
+        if (
+            empty($result) ||
+            !isset($result->status) ||
+            $result->status !== 'success' ||
+            empty($result->content)
+        ) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'No auth user details found!'
+            ]);
+        }
+
+        $updateAuthId = htmlspecialchars($result->content->authUserId);
+        $updateAuthName = htmlspecialchars($result->content->authUserName);
+        $updateAuthEmail = htmlspecialchars($result->content->authUserEmailAddress);
+        $updatePhoneNumber = htmlspecialchars($result->content->authUserPhoneNumber);
+        $updateAuthType = htmlspecialchars($result->content->authUserType);
+        $updateAuthActive = htmlspecialchars($result->content->authUserActive);
+        $previousAuthImage = !empty($result->content->authUserImage) ? $result->content->authUserImage : base_url('assets/img/admin.jfif');
+
+        $html =
+            <<<HTML
+                <input type="hidden" id="updateAuthId" name="updateAuthId" value="{$updateAuthId}">
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
+                    <div class="col-sm-12">
+                    <input type="text" class="form-control" name="updateAuthName" id="updateAuthName" value="{$updateAuthName}" maxlength="100" autocomplete="new-name" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Email Address *</label>
+                    <div class="col-sm-12">
+                    <input type="email" class="form-control" name="updateAuthEmail" id="updateAuthEmail" value="{$updateAuthEmail}" maxlength="50" autocomplete="new-email" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Phone Number *</label>
+                    <div class="col-sm-12">
+                    <input type="text" class="form-control" name="updatePhoneNumber" id="updatePhoneNumber" value="{$updatePhoneNumber}" minlength="10" maxlength="10" autocomplete="new-phone-number" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Password</label>
+                    <div class="col-sm-12">
+                    <input type="password" class="form-control" name="updatePassword" id="updatePassword" value="" maxlength="50" autocomplete="new-password" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Type *</label>
+                    <div class="col-sm-12">
+                    <select class="form-select" name="updateAuthType" id="updateAuthType" required>
+                        <option value="">-- Select --</option>
+                        <option value="SUPER_ADMIN" {$this->customHelper->isSelected($updateAuthType, 'SUPER_ADMIN')}>Super Admin</option>
+                        <option value="ADMIN" {$this->customHelper->isSelected($updateAuthType, 'ADMIN')}>Admin</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
+                    <div class="col-sm-12">
+                    <select class="form-select" name="updateAuthActive" id="updateAuthActive" required>
+                        <option value="">-- Select --</option>
+                        <option value="YES" {$this->customHelper->isSelected($updateAuthActive, 'YES')}>Yes</option>
+                        <option value="NO" {$this->customHelper->isSelected($updateAuthActive, 'YES')}>No</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputFile" class="col-sm-12 col-form-label">Upload Image</label>
+                    <div class="col-sm-12">
+                    <input type="file" class="form-control" name="image" id="updateImageFile" accept="png, jpg, jpeg">
+                    <center>
+                        <img id="previousAuthImage" src="{$previousAuthImage}" alt="Image" style="max-width: 100px; max-height: 100px; margin-top: 10px;">
+                    </center>
+                    </div>
+                </div>
+            HTML;
+
+        return $this->response->setJSON([
+            'status' => true,
+            'html'   => $html
+        ]);
     }
 
     public function updateAuthUserAJAX()
