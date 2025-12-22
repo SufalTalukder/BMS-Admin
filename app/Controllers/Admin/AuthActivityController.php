@@ -76,7 +76,7 @@ class AuthActivityController extends Common
                             <span class="{$methodClass}">{$methodText}</span>
                         </td>
                         <td>{esc($activity->actionLogMessage)}</td>
-                        <td>{$activity->actionLogCreatedAt}</td>
+                        <td>{$this->customHelper->formatDateTime($activity->actionLogCreatedAt)}</td>
                     </tr>
                 HTML;
             $i++;

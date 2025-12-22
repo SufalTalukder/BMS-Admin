@@ -92,12 +92,12 @@ class CategoryController extends Common
                     <tr>
                         <td>#{$i}</td>
                         <td>{esc($eachCategory->categoryName)}</td>
-                        <td>{$eachCategory->categoryCreatedAt}</td>
-                        <td>{$eachCategory->categoryUpdatedAt}</td>
+                        <td>{esc($eachCategory->authUserInfo->authUserName)}</td>
+                        <td>{$this->customHelper->formatDateTime($eachCategory->categoryCreatedAt)}</td>
+                        <td>{$this->customHelper->formatDateTime($eachCategory->categoryUpdatedAt)}</td>
                         <td>
                             <span class="{$statusClass}">{$statusText}</span>
                         </td>
-                        <td>{esc($eachCategory->authUserInfo->authUserName)}</td>
                         <td>
                             <button class="btn btn-sm btn-info rounded-pill"
                                     onclick="getCategory('{$eachCategory->categoryId}')">

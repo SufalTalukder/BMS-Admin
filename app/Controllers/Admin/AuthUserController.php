@@ -133,11 +133,11 @@ class AuthUserController extends Common
                         <td>{esc($eachAuthUser->authUserName)}</td>
                         <td>{esc($eachAuthUser->authUserEmailAddress)}</td>
                         <td>{esc($eachAuthUser->authUserPhoneNumber)}</td>
-                        <td>{$eachAuthUser->authUserCreatedAt}</td>
-                        <td>{$eachAuthUser->authUserUpdatedAt}</td>
                         <td>
                             <span class="{$typeClass}">{$typeText}</span>
                         </td>
+                        <td>{$this->customHelper->formatDateTime($eachAuthUser->authUserCreatedAt)}</td>
+                        <td>{$this->customHelper->formatDateTime($eachAuthUser->authUserUpdatedAt)}</td>
                         <td>
                             <span class="{$statusClass}">{$statusText}</span>
                         </td>
@@ -193,7 +193,7 @@ class AuthUserController extends Common
         $updatePhoneNumber = htmlspecialchars($result->content->authUserPhoneNumber);
         $updateAuthType = htmlspecialchars($result->content->authUserType);
         $updateAuthActive = htmlspecialchars($result->content->authUserActive);
-        $previousAuthImage = !empty($result->content->authUserImage) ? $result->content->authUserImage : base_url('assets/img/admin.jfif');
+        $previousAuthImage = (!empty($result->content->authUserImage) || $result->content->authUserImage !== null) ? $result->content->authUserImage : base_url('assets/img/admin.jfif');
 
         $html =
             <<<HTML

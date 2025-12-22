@@ -93,12 +93,12 @@ class LanguageController extends Common
                     <tr>
                         <td>#{$i}</td>
                         <td>{esc($eachLanguage->languageName)}</td>
-                        <td>{$eachLanguage->languageCreatedAt}</td>
-                        <td>{$eachLanguage->languageUpdatedAt}</td>
+                        <td>{esc($eachLanguage->authUserInfo->authUserName)}</td>
+                        <td>{$this->customHelper->formatDateTime($eachLanguage->languageCreatedAt)}</td>
+                        <td>{$this->customHelper->formatDateTime($eachLanguage->languageUpdatedAt)}</td>
                         <td>
                             <span class="{$statusClass}">{$statusText}</span>
                         </td>
-                        <td>{esc($eachLanguage->authUserInfo->authUserName)}</td>
                         <td>
                             <button class="btn btn-sm btn-info rounded-pill"
                                     onclick="getLanguage('{$eachLanguage->languageId}')">

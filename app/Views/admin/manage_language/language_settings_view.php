@@ -17,10 +17,10 @@
                                 <tr>
                                     <th>Sr. No.</th>
                                     <th>Name</th>
+                                    <th>Action By</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Active</th>
-                                    <th>Action By</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -194,7 +194,11 @@
             success: function(response) {
                 if (response.status) {
                     $('.datatable tbody').html(response.html);
-                    $('.datatable').DataTable();
+                    $('.datatable').DataTable({
+                        order: [
+                            [4, 'desc']
+                        ]
+                    });
                 } else {
                     $('#languageResponse').html(response.message || "No Language(s) found!");
                 }

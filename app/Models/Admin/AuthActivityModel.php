@@ -9,6 +9,7 @@ class AuthActivityModel
         $client = \Config\Services::curlrequest();
         $session = session();
 
+        // FETCH AUTH ACTIVITY API CALL
         $fetchAuthActivityAPI = LOCALHOST_8095 . REQUEST_AUTH_MAPPING . '/get-auth-action-logs';
 
         try {

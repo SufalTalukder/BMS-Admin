@@ -46,4 +46,14 @@ class CustomHelper
                 return ['Unknown', 'badge bg-dark rounded'];
         }
     }
+
+    // Format as "Dec 25, 2023 • 03:30 PM"
+    function formatDateTime($dateTimeString)
+    {
+        $date = DateTime::createFromFormat('Y-m-d H:i:s.u', $dateTimeString);
+        if ($date === false) {
+            return 'Invalid date';
+        }
+        return $date->format('M j, Y • h:i A');
+    }
 }

@@ -9,6 +9,7 @@ class BannerModel
         $client  = \Config\Services::curlrequest();
         $session = session();
 
+        // ADD BANNER API CALL
         $addBannerAPI = LOCALHOST_8083 . REQUEST_AUTH_MAPPING . '/upload-multi-images';
 
         $multipart = [];
@@ -95,6 +96,7 @@ class BannerModel
         $client  = \Config\Services::curlrequest();
         $session = session();
 
+        // DELETE BANNER API CALL
         $deleteBannerAPI = LOCALHOST_8083 . REQUEST_AUTH_MAPPING . '/delete-multi-images';
 
         try {

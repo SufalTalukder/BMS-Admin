@@ -13,8 +13,8 @@
                             <thead>
                                 <tr>
                                     <th>Sr. No.</th>
-                                    <th>Action Method</th>
-                                    <th>Action Message</th>
+                                    <th>Method</th>
+                                    <th>Message</th>
                                     <th>Created At</th>
                                 </tr>
                             </thead>
@@ -44,7 +44,11 @@
             success: function(response) {
                 if (response.status) {
                     $('.datatable tbody').html(response.html);
-                    $('.datatable').DataTable();
+                    $('.datatable').DataTable({
+                        order: [
+                            [3, 'desc']
+                        ]
+                    });
                 } else {
                     $('#activityResponse').html(response.message || 'No activity log(s) found.');
                 }

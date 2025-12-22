@@ -11,12 +11,14 @@ class BannerController extends Common
     protected $session;
     protected $bannerModel;
     protected $authUserModel;
+    protected $customHelper;
 
     public function __construct()
     {
         $this->session          = session();
         $this->bannerModel      = new BannerModel();
         $this->authUserModel    = new AuthUserModel();
+        $this->customHelper     = new \CustomHelper();
     }
 
     public function banner_list_view()
@@ -99,7 +101,7 @@ class BannerController extends Common
                             </a>
                         </td>
                         <td>{esc($eachBanner->authUserInfo->authUserName)}</td>
-                        <td>{$eachBanner->appBannerCreatedAt}</td>
+                        <td>{$this->customHelper->formatDateTime($eachBanner->appBannerCreatedAt)}</td>
                         <td>
                             <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteBanner('{$eachBanner->appBannerId}')">🗑</button>
                         </td>

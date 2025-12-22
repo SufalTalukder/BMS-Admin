@@ -50,7 +50,7 @@
     const password = $('#authPassword').val().trim();
 
     if (!email || !password) {
-      showToast("Email & password required", "error");
+      showToast("Email & password required.", "error");
       return;
     }
 

@@ -20,9 +20,9 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Ph. No.</th>
+                  <th>Type</th>
                   <th>Created At</th>
                   <th>Updated At</th>
-                  <th>Type</th>
                   <th>Active</th>
                   <th>Action</th>
                 </tr>
@@ -188,7 +188,7 @@
     }
 
     if (!addAuthName) {
-      showToast("Name is required.", "warning");
+      showToast("Auth name is required.", "warning");
       stopLoading();
       return;
     }
@@ -278,7 +278,11 @@
       success: function(response) {
         if (response.status) {
           $('.datatable tbody').html(response.html);
-          $('.datatable').DataTable();
+          $('.datatable').DataTable({
+            order: [
+              [6, 'desc']
+            ]
+          });
         } else {
           $('#authUsersResponse').html(response.message || "No auth user(s) found!");
         }
@@ -334,7 +338,7 @@
     }
 
     if (!updateAuthName) {
-      showToast("Name is required.", "warning");
+      showToast("Auth name is required.", "warning");
       stopLoading();
       return;
     }

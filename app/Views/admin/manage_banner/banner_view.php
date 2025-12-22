@@ -115,7 +115,7 @@
         }
 
         if (!files || files.length === 0) {
-            showToast("Image file is required.", "warning");
+            showToast("Banner image file is required.", "warning");
             stopLoading();
             return;
         }
@@ -157,7 +157,11 @@
             success: function(response) {
                 if (response.status) {
                     $('.datatable tbody').html(response.html);
-                    $('.datatable').DataTable();
+                    $('.datatable').DataTable({
+                        order: [
+                            [3, 'desc']
+                        ]
+                    });
                 } else {
                     $('#bannerResponse').html(response.message || "No banner(s) found!");
                 }

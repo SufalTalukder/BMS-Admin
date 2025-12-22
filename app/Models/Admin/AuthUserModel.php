@@ -9,6 +9,7 @@ class AuthUserModel
         $client  = \Config\Services::curlrequest();
         $session = session();
 
+        // ADD AUTH USER API CALL
         $addAuthUserAPI = LOCALHOST_8082 . REQUEST_AUTH_MAPPING . '/create';
 
         try {
@@ -80,6 +81,7 @@ class AuthUserModel
         $client  = \Config\Services::curlrequest();
         $session = session();
 
+        // FETCH AUTH USER DETAILS API CALL
         $fetchAuthUserDetailsAPI = LOCALHOST_8082 . REQUEST_AUTH_MAPPING . '/get-auth-details';
 
         try {
