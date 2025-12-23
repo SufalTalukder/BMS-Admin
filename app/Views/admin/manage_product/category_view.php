@@ -51,6 +51,7 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
                                 <div class="col-sm-12">
@@ -92,6 +93,7 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body" id="editCategoryBody">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
@@ -117,6 +119,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure! you want to delete this Category?</p>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -155,6 +158,9 @@
             return;
         }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         const formData = new FormData();
         formData.append('categoryName', addCategoryName);
         formData.append('categoryActive', addCategoryActive);
@@ -163,7 +169,10 @@
             url: "<?= base_url('add-category') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
@@ -258,6 +267,9 @@
             return;
         }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         const formData = new FormData();
         formData.append('updateCategoryId', updateCategoryId);
         formData.append('updateCategoryName', updateCategoryName);
@@ -267,7 +279,10 @@
             url: "<?= base_url('update-category') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
@@ -292,12 +307,16 @@
     // Delete
     function deleteCategory(deleteCategoryId) {
         $('#deleteModal').modal('show');
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
                 url: "<?= base_url('delete-category') ?>",
                 method: "POST",
                 data: {
-                    deleteCategoryId: deleteCategoryId
+                    deleteCategoryId: deleteCategoryId,
+                    [csrfName]: csrfHash
                 },
                 dataType: "json",
                 success: function(response) {

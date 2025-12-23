@@ -51,6 +51,7 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
                                 <div class="col-sm-12">
@@ -92,6 +93,7 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body" id="editLanguageBody">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
@@ -117,6 +119,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure! you want to delete this Language?</p>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -155,6 +158,9 @@
             return;
         }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         const formData = new FormData();
         formData.append('languageName', addLanguageName);
         formData.append('languageActive', addLanguageActive);
@@ -163,7 +169,10 @@
             url: "<?= base_url('add-language') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
@@ -258,6 +267,9 @@
             return;
         }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         const formData = new FormData();
         formData.append('updateLanguageId', updateLanguageId);
         formData.append('updateLanguageName', updateLanguageName);
@@ -267,7 +279,10 @@
             url: "<?= base_url('update-language') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
@@ -292,12 +307,16 @@
     // Delete
     function deleteLanguage(deleteLanguageId) {
         $('#deleteModal').modal('show');
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
                 url: "<?= base_url('delete-language') ?>",
                 method: "POST",
                 data: {
-                    deleteLanguageId: deleteLanguageId
+                    deleteLanguageId: deleteLanguageId,
+                    [csrfName]: csrfHash
                 },
                 dataType: "json",
                 success: function(response) {

@@ -16,6 +16,8 @@
                   <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                   <p class="text-center small">Enter your username & password to login</p>
                 </div>
+                <!-- Hidden CSRF Token Input -->
+                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                 <div class="col-12">
                   <label for="yourUsername" class="form-label">Email Address</label>
                   <div class="input-group has-validation">
@@ -45,7 +47,6 @@
   // Submit
   $(document).on('click', '.submitLoginBtn', function(e) {
     e.preventDefault();
-
     const email = $('#authEmailAddress').val().trim();
     const password = $('#authPassword').val().trim();
 
@@ -53,6 +54,10 @@
       showToast("Email & password required.", "error");
       return;
     }
+
+    // CSRF Token
+    const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+    const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
     $('#loginText').text('Logging in...');
     $('#loginSpinner').show();
@@ -63,7 +68,8 @@
       dataType: "json",
       data: {
         email: email,
-        password: password
+        password: password,
+        [csrfName]: csrfHash
       },
       success: function(response) {
         if (response.status) {

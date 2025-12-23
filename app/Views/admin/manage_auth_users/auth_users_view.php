@@ -54,6 +54,7 @@
         <div class="modal-body">
           <div class="card">
             <div class="card-body">
+              <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
                 <div class="col-sm-12">
@@ -129,6 +130,7 @@
         <div class="modal-body">
           <div class="card">
             <div class="card-body" id="editAuthBody">
+              <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
               <!-- dynamic content will be loaded -->
             </div>
             <div class="modal-footer">
@@ -145,7 +147,8 @@
   <!-- edit auth modal end -->
 
   <!-- delete auth modal starts -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-sm">
       <div class="modal-content text-center">
         <div class="modal-header">
@@ -153,7 +156,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure! you want to delete this auth?</p>
+          <p>Are you sure you want to delete this auth?</p>
+          <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -231,6 +235,9 @@
       return;
     }
 
+    const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+    const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
     const formData = new FormData();
     formData.append('authName', addAuthName);
     formData.append('authEmail', addAuthEmail);
@@ -247,7 +254,10 @@
       url: "<?= base_url('add-auth-user') ?>",
       type: "POST",
       dataType: "json",
-      data: formData,
+      data: {
+        formData,
+        [csrfName]: csrfHash
+      },
       processData: false,
       contentType: false,
       success: function(response) {
@@ -376,6 +386,9 @@
       return;
     }
 
+    const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+    const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
     const formData = new FormData();
     formData.append('authId', authUserId);
     formData.append('authName', updateAuthName);
@@ -393,7 +406,10 @@
       url: "<?= base_url('update-auth-user') ?>",
       type: "POST",
       dataType: "json",
-      data: formData,
+      data: {
+        formData,
+        [csrfName]: csrfHash
+      },
       processData: false,
       contentType: false,
       success: function(response) {
@@ -418,12 +434,16 @@
   // Delete
   function deleteAuth(authId) {
     $('#deleteModal').modal('show');
+    const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+    const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
     $('#confirmDelete').off('click').on('click', function() {
       $.ajax({
         url: "<?= base_url('delete-auth-user') ?>",
         method: "POST",
         data: {
-          authId: authId
+          authId: authId,
+          [csrfName]: csrfHash
         },
         dataType: "json",
         success: function(response) {

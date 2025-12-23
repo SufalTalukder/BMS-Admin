@@ -49,6 +49,7 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <div class="row mb-3">
                                 <label for="addImageFile" class="col-sm-12 col-form-label">
                                     Upload Images
@@ -87,6 +88,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure! you want to delete this Banner?</p>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -124,11 +126,17 @@
             formData.append('appBannerImage', files[i]);
         }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         $.ajax({
             url: "<?= base_url('add-banner') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
@@ -175,6 +183,8 @@
     // Delete
     function deleteBanner(bannerId) {
         $('#deleteModal').modal('show');
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
@@ -182,7 +192,8 @@
                 type: "POST",
                 dataType: "json",
                 data: {
-                    bannerIds: [bannerId]
+                    bannerIds: [bannerId],
+                    [csrfName]: csrfHash
                 },
                 success: function(response) {
                     if (response.status) {
