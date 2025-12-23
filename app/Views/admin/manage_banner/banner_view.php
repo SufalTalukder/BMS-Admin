@@ -104,7 +104,6 @@
 <script type="text/javascript">
     // Add
     $(document).on('click', '.saveBanner', function() {
-
         const files = $('#addImageFile')[0].files;
         let formData = new FormData();
 

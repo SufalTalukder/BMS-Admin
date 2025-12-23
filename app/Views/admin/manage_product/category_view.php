@@ -135,7 +135,6 @@
 <script type="text/javascript">
     // Add
     $(document).on('click', '.saveCategory', function() {
-
         const addCategoryName = $('#addCategoryName').val().trim();
         const addCategoryActive = $('#addCategoryActive').val();
 
@@ -220,11 +219,15 @@
 
     // Get
     function getCategory(getCategoryId) {
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         $.ajax({
             url: "<?= base_url('get-category-details') ?>",
             method: "POST",
             data: {
-                getCategoryId: getCategoryId
+                getCategoryId: getCategoryId,
+                [csrfName]: csrfHash
             },
             dataType: "json",
             success: function(response) {
@@ -243,7 +246,6 @@
 
     // Update
     $(document).on('click', '.updateCategory', function() {
-
         const updateCategoryId = $('#updateCategoryId').val();
         const updateCategoryName = $('#updateCategoryName').val().trim();
         const updateCategoryActive = $('#updateCategoryActive').val();

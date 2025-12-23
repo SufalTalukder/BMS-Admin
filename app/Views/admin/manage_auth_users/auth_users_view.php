@@ -173,7 +173,6 @@
 <script type="text/javascript">
   // Add
   $(document).on('click', '.saveAuthUser', function() {
-
     const addAuthName = $('#addAuthName').val().trim();
     const addAuthEmail = $('#addAuthEmail').val().trim();
     const addPhoneNumber = $('#addPhoneNumber').val().trim();
@@ -305,11 +304,15 @@
 
   // Get
   function getAuth(authId) {
+    const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+    const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
     $.ajax({
       url: "<?= base_url('get-auth-user-details') ?>",
       method: "POST",
       data: {
-        authId: authId
+        authId: authId,
+        [csrfName]: csrfHash
       },
       dataType: "json",
       success: function(response) {
@@ -328,7 +331,6 @@
 
   // Update
   $(document).on('click', '.updateAuthUser', function() {
-
     const authUserId = $('#updateAuthId').val();
     const updateAuthName = $('#updateAuthName').val().trim();
     const updateAuthEmail = $('#updateAuthEmail').val().trim();

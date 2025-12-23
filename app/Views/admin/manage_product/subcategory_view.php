@@ -1,6 +1,6 @@
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
-        <h1 class="mb-0">Manage languages</h1>
+        <h1 class="mb-0">Manage Subcategories</h1>
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addModal">
             + Add Record
         </button>
@@ -27,7 +27,7 @@
                             <tbody id="tcategory">
                                 <tr>
                                     <td colspan="9">
-                                        <center id="languageResponse">Languages(s) List Loading...</center>
+                                        <center id="subCategoryResponse">Subcategorie(s) List Loading...</center>
                                     </td>
                                 </tr>
                             </tbody>
@@ -40,12 +40,12 @@
     </section>
 
     <!-- modals starts -->
-    <!-- add Language modal starts -->
+    <!-- add subcategory modal starts -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header custom-modal-header">
-                    <h5 class="modal-title">Add Language</h5>
+                    <h5 class="modal-title">Add Subcategory</h5>
                     <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -55,13 +55,13 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="addLanguageName" id="addLanguageName" maxlength="100" autocomplete="new-name" required>
+                                    <input type="text" class="form-control" name="addSubCategoryName" id="addSubcategoryName" maxlength="100" autocomplete="new-name" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
                                 <div class="col-sm-12">
-                                    <select class="form-select" name="addLanguageActive" id="addLanguageActive" required>
+                                    <select class="form-select" name="addSubcategoryActive" id="addSubcategoryActive" required>
                                         <option value="">-- Select --</option>
                                         <option value="YES">Yes</option>
                                         <option value="NO">No</option>
@@ -71,8 +71,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">
-                                <span id="addLanguageSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
-                                <span class="saveLanguage" id="saveLanguageText">Save</span>
+                                <span id="addSubcategorySpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
+                                <span class="saveSubcategory" id="saveSubcategoryText">Save</span>
                             </button>
                         </div>
                     </div>
@@ -80,26 +80,26 @@
             </div>
         </div>
     </div>
-    <!-- add Language modal end -->
+    <!-- add subcategory modal end -->
 
-    <!-- edit Language modal starts -->
+    <!-- edit subcategory modal starts -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header custom-modal-header">
-                    <h5 class="modal-title">Update Language</h5>
+                    <h5 class="modal-title">Update Subcategory</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="card">
-                        <div class="card-body" id="editLanguageBody">
+                        <div class="card-body" id="editSubcategoryBody">
                             <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">
-                                <span id="updateLanguageSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
-                                <span class="updateLanguage" id="updateLanguageText">Update</span>
+                                <span id="updateSubcategorySpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
+                                <span class="updateSubcategory" id="updateSubcategoryText">Update</span>
                             </button>
                         </div>
                     </div>
@@ -107,9 +107,9 @@
             </div>
         </div>
     </div>
-    <!-- edit Language modal end -->
+    <!-- edit subcategory modal end -->
 
-    <!-- delete Language modal starts -->
+    <!-- delete subcategory modal starts -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content text-center">
@@ -118,7 +118,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure! you want to delete this Language?</p>
+                    <p>Are you sure! you want to delete this Subcategory?</p>
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                 </div>
                 <div class="modal-footer">
@@ -128,30 +128,30 @@
             </div>
         </div>
     </div>
-    <!-- delete Language modal end -->
+    <!-- delete subcategory modal end -->
     <!-- modals end -->
 </main>
 
 <script type="text/javascript">
     // Add
-    $(document).on('click', '.saveLanguage', function() {
-        const addLanguageName = $('#addLanguageName').val().trim();
-        const addLanguageActive = $('#addLanguageActive').val();
+    $(document).on('click', '.saveSubcategory', function() {
+        const addSubcategoryName = $('#addSubcategoryName').val().trim();
+        const addSubcategoryActive = $('#addSubcategoryActive').val();
 
-        $('#saveLanguageText').text('Saving...');
-        $('#addLanguageSpinner').show();
+        $('#saveSubcategoryText').text('Saving...');
+        $('#addSubcategorySpinner').show();
 
         function stopLoading() {
-            $('#addLanguageSpinner').hide();
-            $('#saveLanguageText').text('Save');
+            $('#addSubcategorySpinner').hide();
+            $('#saveSubcategoryText').text('Save');
         }
 
-        if (!addLanguageName) {
-            showToast("Language name is required.", "warning");
+        if (!addSubcategoryName) {
+            showToast("Subcategory name is required.", "warning");
             stopLoading();
             return;
         }
-        if (!addLanguageActive) {
+        if (!addSubcategoryActive) {
             showToast("Active status is required.", "warning");
             stopLoading();
             return;
@@ -161,11 +161,11 @@
         const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         const formData = new FormData();
-        formData.append('languageName', addLanguageName);
-        formData.append('languageActive', addLanguageActive);
+        formData.append('subCategoryName', addSubcategoryName);
+        formData.append('subCategoryActive', addSubcategoryActive);
 
         $.ajax({
-            url: "<?= base_url('add-language') ?>",
+            url: "<?= base_url('add-sub-category') ?>",
             type: "POST",
             dataType: "json",
             data: {
@@ -176,7 +176,7 @@
             contentType: false,
             success: function(response) {
                 if (response.status) {
-                    showToast("Language added successfully!", "success");
+                    showToast("Subcategory added successfully!", "success");
                     setTimeout(function() {
                         location.reload();
                     }, 1000);
@@ -196,7 +196,7 @@
     // Get All
     $(document).ready(function() {
         $.ajax({
-            url: "<?= base_url('fetch-languages') ?>",
+            url: "<?= base_url('fetch-sub-categories') ?>",
             type: "GET",
             dataType: "json",
             success: function(response) {
@@ -204,11 +204,11 @@
                     $('.datatable tbody').html(response.html);
                     $('.datatable').DataTable({
                         order: [
-                            [4, 'desc']
+                            [3, 'desc']
                         ]
                     });
                 } else {
-                    $('#languageResponse').html(response.message || "No Language(s) found!");
+                    $('#subCategoryResponse').html(response.message || "No Subcategorie(s) found!");
                 }
             },
             error: function(xhr) {
@@ -218,21 +218,21 @@
     });
 
     // Get
-    function getLanguage(getLanguageId) {
+    function getSubCategory(getSubCategoryId) {
         const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
         const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         $.ajax({
-            url: "<?= base_url('get-language-details') ?>",
+            url: "<?= base_url('get-sub-category-details') ?>",
             method: "POST",
             data: {
-                getLanguageId: getLanguageId,
+                getSubCategoryId: getSubCategoryId,
                 [csrfName]: csrfHash
             },
             dataType: "json",
             success: function(response) {
                 if (response.status) {
-                    $('#editLanguageBody').html(response.html);
+                    $('#editSubcategoryBody').html(response.html);
                     $('#editModal').modal('show');
                 } else {
                     showToast(response.message, "error");
@@ -245,25 +245,25 @@
     }
 
     // Update
-    $(document).on('click', '.updateLanguage', function() {
-        const updateLanguageId = $('#updateLanguageId').val();
-        const updateLanguageName = $('#updateLanguageName').val().trim();
-        const updateLanguageActive = $('#updateLanguageActive').val();
+    $(document).on('click', '.updateSubcategory', function() {
+        const updateSubcategoryId = $('#updateSubcategoryId').val();
+        const updateSubcategoryName = $('#updateSubcategoryName').val().trim();
+        const updateSubcategoryActive = $('#updateSubcategoryActive').val();
 
-        $('#updateLanguageText').text('Updating...');
-        $('#updateLanguageSpinner').show();
+        $('#updateSubcategoryText').text('Updating...');
+        $('#updateSubcategorySpinner').show();
 
         function stopLoading() {
-            $('#updateLanguageSpinner').hide();
-            $('#updateLanguageText').text('Update');
+            $('#updateSubcategorySpinner').hide();
+            $('#updateSubcategoryText').text('Update');
         }
 
-        if (!updateLanguageName) {
-            showToast("Language name is required.", "warning");
+        if (!updateSubcategoryName) {
+            showToast("Subcategory name is required.", "warning");
             stopLoading();
             return;
         }
-        if (!updateLanguageActive) {
+        if (!updateSubcategoryActive) {
             showToast("Active status is required.", "warning");
             stopLoading();
             return;
@@ -273,12 +273,12 @@
         const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         const formData = new FormData();
-        formData.append('updateLanguageId', updateLanguageId);
-        formData.append('updateLanguageName', updateLanguageName);
-        formData.append('updateLanguageActive', updateLanguageActive);
+        formData.append('updateSubcategoryId', updateSubcategoryId);
+        formData.append('updateSubcategoryName', updateSubcategoryName);
+        formData.append('updateSubcategoryActive', updateSubcategoryActive);
 
         $.ajax({
-            url: "<?= base_url('update-language') ?>",
+            url: "<?= base_url('update-sub-category') ?>",
             type: "POST",
             dataType: "json",
             data: {
@@ -289,7 +289,7 @@
             contentType: false,
             success: function(response) {
                 if (response.status) {
-                    showToast("Language updated successfully!", "success");
+                    showToast("Subcategory updated successfully!", "success");
                     setTimeout(function() {
                         location.reload();
                     }, 1000);
@@ -307,23 +307,23 @@
     });
 
     // Delete
-    function deleteLanguage(deleteLanguageId) {
+    function deleteSubCategory(deleteSubCategoryId) {
         $('#deleteModal').modal('show');
         const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
         const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
-                url: "<?= base_url('delete-language') ?>",
+                url: "<?= base_url('delete-sub-category') ?>",
                 method: "POST",
                 data: {
-                    deleteLanguageId: deleteLanguageId,
+                    deleteSubCategoryId: deleteSubCategoryId,
                     [csrfName]: csrfHash
                 },
                 dataType: "json",
                 success: function(response) {
                     if (response.status) {
-                        showToast("Language deleted successfully!", "success");
+                        showToast("Subcategory deleted successfully!", "success");
                         setTimeout(function() {
                             location.reload();
                         }, 1000);

@@ -37,6 +37,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Category View Routes
     $routes->get('category-service', 'CategoryController::category_view');
+
+    // Sub-Category View Routes
+    $routes->get('sub-category-service', 'SubCategoryController::sub_category_view');
 });
 
 // ====================================================================================================== //
@@ -74,3 +77,10 @@ $routes->get('fetch-categories', 'Admin\CategoryController::getAllCategoriesAJAX
 $routes->post('get-category-details', 'Admin\CategoryController::getCategoryDetailsAJAX');
 $routes->post('update-category', 'Admin\CategoryController::updateCategoryAJAX');
 $routes->post('delete-category', 'Admin\CategoryController::deleteCategoryAJAX');
+
+// Sub-Category APIs
+$routes->post('add-sub-category', 'Admin\CategoryController::addSubCategoryAJAX');
+$routes->get('fetch-sub-categories', 'Admin\CategoryController::getAllSubCategoriesAJAX');
+$routes->post('get-sub-category-details', 'Admin\CategoryController::getSubCategoryDetailsAJAX');
+$routes->post('update-sub-category', 'Admin\CategoryController::updateSubCategoryAJAX');
+$routes->post('delete-sub-category', 'Admin\CategoryController::deleteSubCategoryAJAX');

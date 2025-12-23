@@ -74,6 +74,7 @@
                                 <input type="hidden" id="updateAuthType" value="<?= !empty($extracted_auth_user_details->authUserType) ? $extracted_auth_user_details->authUserType : ""; ?>">
                                 <input type="hidden" id="updateAuthActive" value="<?= !empty($extracted_auth_user_details->authUserActive) ? $extracted_auth_user_details->authUserActive : ""; ?>">
                                 <input type="hidden" id="updatePassword" value="<?= !empty($extracted_auth_user_details->authUserPassword) ? $extracted_auth_user_details->authUserPassword : ""; ?>">
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                 <div class="row mb-3">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                     <div class="col-md-8 col-lg-9">
@@ -93,7 +94,7 @@
                                 <div class="row mb-3">
                                     <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <textarea name="about" class="form-control" id="about" style="height: 100px" disabled>It is <?= PROJECT_NAME; ?> Admin</textarea>
+                                        <textarea name="about" class="form-control" id="about" style="height: 100px" disabled><?= PROJECT_ABOUT; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -171,6 +172,7 @@
                                 <input type="hidden" id="authUserPhone" value="<?= !empty($extracted_auth_user_details->authUserPhoneNumber) ? $extracted_auth_user_details->authUserPhoneNumber : ""; ?>">
                                 <input type="hidden" id="authUserType" value="<?= !empty($extracted_auth_user_details->authUserType) ? $extracted_auth_user_details->authUserType : ""; ?>">
                                 <input type="hidden" id="authUserActive" value="<?= !empty($extracted_auth_user_details->authUserActive) ? $extracted_auth_user_details->authUserActive : ""; ?>">
+                                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                                 <div class="row mb-3">
                                     <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                                     <div class="col-md-8 col-lg-9">
@@ -201,7 +203,6 @@
 <script type="text/javascript">
     // Update
     $(document).on('click', '.updateAuthUser', function() {
-
         const authUserId = $('#updateAuthId').val();
         const updateAuthName = $('#updateAuthName').val().trim();
         const updateAuthEmail = $('#updateAuthEmail').val().trim();
@@ -248,6 +249,9 @@
         //     return;
         // }
 
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+
         const formData = new FormData();
         formData.append('authId', authUserId);
         formData.append('authName', updateAuthName);
@@ -261,12 +265,15 @@
             url: "<?= base_url('update-auth-user') ?>",
             type: "POST",
             dataType: "json",
-            data: formData,
+            data: {
+                formData,
+                [csrfName]: csrfHash
+            },
             processData: false,
             contentType: false,
             success: function(response) {
                 if (response.status) {
-                    showToast("Auth user updated successfully!", "success");
+                    showToast("Auth user details updated successfully!", "success");
                     setTimeout(function() {
                         location.reload();
                     }, 1000);
