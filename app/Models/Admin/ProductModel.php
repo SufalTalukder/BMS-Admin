@@ -2,27 +2,38 @@
 
 namespace App\Models\Admin;
 
-class LanguageModel
+class ProductModel
 {
-    public function addLanguageAJAX($data)
+    public function addProductAJAX($data)
     {
         $client  = \Config\Services::curlrequest();
         $session = session();
 
-        // ADD LANGUAGE API CALL
-        $addLanguageAPI = LOCALHOST_8088 . REQUEST_AUTH_MAPPING . '/create-language';
+        // ADD PRODUCT API CALL
+        $addCategoryAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/create-product';
 
         try {
-            $response = $client->post($addLanguageAPI, [
+            $response = $client->post($addCategoryAPI, [
                 'headers' => [
                     'authToken'    => $session->get('admin_auth_token'),
                     'x-api-key'    => XAPIKEY,
                     'x-api-secret' => XAPISECRET,
                     'Accept'       => 'application/json'
                 ],
+                'query' => [
+                    'categoryId'    => $data['productCategory'],
+                    'subCategoryId' => $data['productSubCategory'],
+                    'languageId'    => $data['productLanguage']
+                ],
                 'json' => [
-                    'languageName'         => $data['languageName'],
-                    'languageActive'       => $data['languageActive']
+                    'productName'               => $data['productName'],
+                    'productBrand'              => $data['productBrand'],
+                    'productCode'               => $data['productCode'],
+                    'productAvailability'       => $data['productAvailability'],
+                    'productPrice'              => $data['productPrice'],
+                    'productDetails'            => $data['productDetails'],
+                    'productStock'              => $data['productStock'],
+                    'productActive'             => $data['productActive']
                 ],
                 'timeout' => 10
             ]);
@@ -31,12 +42,7 @@ class LanguageModel
             if (isset($result->status) && $result->status === 'success') {
                 return [
                     'status'  => true,
-                    'message' => 'Language added successfully.'
-                ];
-            } else if (isset($result->status) && $result->status === 'exist') {
-                return [
-                    'status'  => false,
-                    'message' => $result->message
+                    'message' => 'Product added successfully.'
                 ];
             }
         } catch (\Throwable $e) {
@@ -47,13 +53,13 @@ class LanguageModel
         }
     }
 
-    public function getLanguagesAJAX()
+    public function getAllProductsAJAX()
     {
         $client = \Config\Services::curlrequest();
         $session = session();
 
-        // FETCH LANGUAGES API CALL
-        $fetchLangaugesAPI = LOCALHOST_8088 . REQUEST_AUTH_MAPPING . '/get-all-languages';
+        // FETCH SUBCATEGORIES API CALL
+        $fetchLangaugesAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/get-all-products';
 
         try {
             $response = $client->get($fetchLangaugesAPI, [
@@ -76,16 +82,16 @@ class LanguageModel
         }
     }
 
-    public function getLanguageDetailsAJAX($getLanguageId)
+    public function getProductDetailsAJAX($getSubCategoryId)
     {
         $client  = \Config\Services::curlrequest();
         $session = session();
 
-        // FETCH LANGUAGE DETAILS API CALL
-        $fetchLanguageDetailsAPI = LOCALHOST_8088 . REQUEST_AUTH_MAPPING . '/get-language';
+        // FETCH PRODUCT DETAILS API CALL
+        $fetchCategoryDetailsAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/get-product';
 
         try {
-            $response = $client->get($fetchLanguageDetailsAPI, [
+            $response = $client->get($fetchCategoryDetailsAPI, [
                 'headers' => [
                     'authToken'    => $session->get('admin_auth_token'),
                     'x-api-key'    => XAPIKEY,
@@ -93,7 +99,7 @@ class LanguageModel
                     'Accept'       => 'application/json'
                 ],
                 'query' => [
-                    'languageId' => $getLanguageId
+                    'subCategoryId' => $getSubCategoryId
                 ],
                 'timeout' => 10
             ]);
@@ -108,16 +114,16 @@ class LanguageModel
         }
     }
 
-    public function updateLanguageAJAX($updateLanguageId, $data)
+    public function updateProductAJAX($updateSubcategoryId, $data)
     {
         $client = \Config\Services::curlrequest();
         $session = session();
 
-        // EDIT LANGUAGE API CALL
-        $editLanguageAPI = LOCALHOST_8088 . REQUEST_AUTH_MAPPING . '/update-language-details';
+        // EDIT PRODUCT API CALL
+        $editCategoryAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/update-product-details';
 
         try {
-            $response = $client->put($editLanguageAPI, [
+            $response = $client->put($editCategoryAPI, [
                 'headers' => [
                     'authToken'     => $session->get('admin_auth_token'),
                     'x-api-key'     => XAPIKEY,
@@ -125,11 +131,11 @@ class LanguageModel
                     'Accept'        => 'application/json'
                 ],
                 'query' => [
-                    'languageId' => $updateLanguageId
+                    'subCategoryId' => $updateSubcategoryId
                 ],
                 'json' => [
-                    'languageName'         => $data['updateLanguageName'],
-                    'languageActive'       => $data['updateLanguageActive']
+                    'subCategoryName'         => $data['updateCategoryName'],
+                    'subCategoryActive'       => $data['updateCategoryActive']
                 ],
                 'timeout' => 10
             ]);
@@ -138,12 +144,7 @@ class LanguageModel
             if (isset($result->status) && $result->status === 'success') {
                 return [
                     'status'  => true,
-                    'message' => 'Language updated successfully.'
-                ];
-            } else if (isset($result->status) && $result->status === 'exist') {
-                return [
-                    'status'  => false,
-                    'message' => $result->message
+                    'message' => 'Product updated successfully.'
                 ];
             }
         } catch (\Throwable $e) {
@@ -154,16 +155,16 @@ class LanguageModel
         }
     }
 
-    public function deleteLanguageAJAX($deleteLanguageId)
+    public function deleteProductAJAX($deleteSubCategoryId)
     {
         $client = \Config\Services::curlrequest();
         $session = session();
 
-        // DELETE LANGUAGE API CALL
-        $deleteLanguageAPI = LOCALHOST_8088 . REQUEST_AUTH_MAPPING . '/delete-language';
+        // DELETE PRODUCT API CALL
+        $deleteCategoryAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/delete-product';
 
         try {
-            $response = $client->delete($deleteLanguageAPI, [
+            $response = $client->delete($deleteCategoryAPI, [
                 'headers' => [
                     'authToken'     => $session->get('admin_auth_token'),
                     'x-api-key'     => XAPIKEY,
@@ -171,7 +172,7 @@ class LanguageModel
                     'Accept'        => 'application/json'
                 ],
                 'query' => [
-                    'languageId' => $deleteLanguageId
+                    'subCategoryId' => $deleteSubCategoryId
                 ],
                 'timeout' => 10
             ]);
@@ -180,7 +181,7 @@ class LanguageModel
             if (isset($result->status) && $result->status === 'success') {
                 return [
                     'status'  => true,
-                    'message' => 'Language deleted successfully.'
+                    'message' => 'Product deleted successfully.'
                 ];
             }
         } catch (\Throwable $e) {

@@ -127,3 +127,6 @@ define('LOCALHOST_8084', 'http://localhost:8084');
 
 // SUB-CATEGORY SERVICE
 define('LOCALHOST_8085', 'http://localhost:8085');
+
+// PRODUCT SERVICE
+define('LOCALHOST_8086', 'http://localhost:8086');

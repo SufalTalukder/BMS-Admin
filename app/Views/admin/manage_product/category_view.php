@@ -163,15 +163,13 @@
         const formData = new FormData();
         formData.append('categoryName', addCategoryName);
         formData.append('categoryActive', addCategoryActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('add-category') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
@@ -204,7 +202,7 @@
                     $('.datatable tbody').html(response.html);
                     $('.datatable').DataTable({
                         order: [
-                            [3, 'desc']
+                            [3, 'asc']
                         ]
                     });
                 } else {
@@ -276,15 +274,13 @@
         formData.append('updateCategoryId', updateCategoryId);
         formData.append('updateCategoryName', updateCategoryName);
         formData.append('updateCategoryActive', updateCategoryActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('update-category') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {

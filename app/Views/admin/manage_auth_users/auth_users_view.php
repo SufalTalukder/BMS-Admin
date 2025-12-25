@@ -244,6 +244,7 @@
     formData.append('password', addPassword);
     formData.append('authType', addAuthType);
     formData.append('authActive', addAuthActive);
+    formData.append(csrfName, csrfHash);
 
     if (addImageFile) {
       formData.append('imageFile', addImageFile);
@@ -253,10 +254,7 @@
       url: "<?= base_url('add-auth-user') ?>",
       type: "POST",
       dataType: "json",
-      data: {
-        formData,
-        [csrfName]: csrfHash
-      },
+      data: formData,
       processData: false,
       contentType: false,
       success: function(response) {
@@ -289,7 +287,7 @@
           $('.datatable tbody').html(response.html);
           $('.datatable').DataTable({
             order: [
-              [6, 'desc']
+              [6, 'asc']
             ]
           });
         } else {
@@ -399,6 +397,7 @@
     formData.append('password', updatePassword);
     formData.append('authType', updateAuthType);
     formData.append('authActive', updateAuthActive);
+    formData.append(csrfName, csrfHash);
 
     if (updateImageFile) {
       formData.append('updateImageFile', updateImageFile);
@@ -408,10 +407,7 @@
       url: "<?= base_url('update-auth-user') ?>",
       type: "POST",
       dataType: "json",
-      data: {
-        formData,
-        [csrfName]: csrfHash
-      },
+      data: formData,
       processData: false,
       contentType: false,
       success: function(response) {

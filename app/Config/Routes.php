@@ -40,6 +40,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Sub-Category View Routes
     $routes->get('sub-category-service', 'SubCategoryController::sub_category_view');
+
+    // Product View Routes
+    $routes->get('product-service', 'ProductController::product_view');
 });
 
 // ====================================================================================================== //
@@ -79,8 +82,15 @@ $routes->post('update-category', 'Admin\CategoryController::updateCategoryAJAX')
 $routes->post('delete-category', 'Admin\CategoryController::deleteCategoryAJAX');
 
 // Sub-Category APIs
-$routes->post('add-sub-category', 'Admin\CategoryController::addSubCategoryAJAX');
-$routes->get('fetch-sub-categories', 'Admin\CategoryController::getAllSubCategoriesAJAX');
-$routes->post('get-sub-category-details', 'Admin\CategoryController::getSubCategoryDetailsAJAX');
-$routes->post('update-sub-category', 'Admin\CategoryController::updateSubCategoryAJAX');
-$routes->post('delete-sub-category', 'Admin\CategoryController::deleteSubCategoryAJAX');
+$routes->post('add-sub-category', 'Admin\SubCategoryController::addSubCategoryAJAX');
+$routes->get('fetch-sub-categories', 'Admin\SubCategoryController::getAllSubCategoriesAJAX');
+$routes->post('get-sub-category-details', 'Admin\SubCategoryController::getSubCategoryDetailsAJAX');
+$routes->post('update-sub-category', 'Admin\SubCategoryController::updateSubCategoryAJAX');
+$routes->post('delete-sub-category', 'Admin\SubCategoryController::deleteSubCategoryAJAX');
+
+// Product APIs
+$routes->post('add-product', 'Admin\ProductController::addProductAJAX');
+$routes->get('fetch-products', 'Admin\ProductController::getAllProductsAJAX');
+$routes->post('get-product-details', 'Admin\ProductController::getProductDetailsAJAX');
+$routes->post('update-product', 'Admin\ProductController::updateProductAJAX');
+$routes->post('delete-product', 'Admin\ProductController::deleteProductAJAX');

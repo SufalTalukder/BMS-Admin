@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\CategoryModel;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class CategoryController extends Common
 {
@@ -18,7 +19,7 @@ class CategoryController extends Common
         $this->session        = session();
         $this->categoryModel  = new CategoryModel();
         $this->authUserModel  = new AuthUserModel();
-        $this->customHelper   = new \CustomHelper();
+        $this->customHelper   = new CustomHelper();
     }
 
     public function category_view()
@@ -87,12 +88,24 @@ class CategoryController extends Common
         foreach ($result->content as $eachCategory) {
             list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachCategory->categoryActive);
 
+            $authUserName = isset($eachCategory->authUserInfo->authUserName) && $eachCategory->authUserInfo->authUserName !== ''
+                ? esc($eachCategory->authUserInfo->authUserName)
+                : '-';
+
+            $categoryName = isset($eachCategory->categoryName) && $eachCategory->categoryName !== ''
+                ? esc($eachCategory->categoryName)
+                : '-';
+
+            $categoryId = isset($eachCategory->categoryId) && $eachCategory->categoryId !== ''
+                ? esc($eachCategory->categoryId)
+                : '';
+
             $html .=
                 <<<HTML
                     <tr>
                         <td>#{$i}</td>
-                        <td>{esc($eachCategory->categoryName)}</td>
-                        <td>{esc($eachCategory->authUserInfo->authUserName)}</td>
+                        <td>{$categoryName}</td>
+                        <td>{$authUserName}</td>
                         <td>{$this->customHelper->formatDateTime($eachCategory->categoryCreatedAt)}</td>
                         <td>{$this->customHelper->formatDateTime($eachCategory->categoryUpdatedAt)}</td>
                         <td>
@@ -100,11 +113,11 @@ class CategoryController extends Common
                         </td>
                         <td>
                             <button class="btn btn-sm btn-info rounded-pill"
-                                    onclick="getCategory('{$eachCategory->categoryId}')">
+                                    onclick="getCategory('{$categoryId}')">
                                 ✏️
                             </button>
                             <button class="btn btn-sm btn-danger rounded-pill"
-                                    onclick="deleteCategory('{$eachCategory->categoryId}')">
+                                    onclick="deleteCategory('{$categoryId}')">
                                 🗑
                             </button>
                         </td>
@@ -153,6 +166,8 @@ class CategoryController extends Common
         $categoryId = htmlspecialchars($result->content->categoryId);
         $categoryName = htmlspecialchars($result->content->categoryName);
         $categoryActive = htmlspecialchars($result->content->categoryActive);
+        $selectedYes = $categoryActive === 'YES' ? 'selected' : '';
+        $selectedNo = $categoryActive === 'NO' ? 'selected' : '';
 
         $html =
             <<<HTML
@@ -168,8 +183,8 @@ class CategoryController extends Common
                     <div class="col-sm-12">
                         <select class="form-select" name="updateCategoryActive" id="updateCategoryActive" required>
                             <option value="">-- Select --</option>
-                            <option value="YES" {$this->customHelper->getStatusDetails($categoryActive, 'YES')}>Yes</option>
-                            <option value="NO" {$this->customHelper->getStatusDetails($categoryActive, 'NO')}>No</option>
+                            <option value="YES" {$selectedYes}>Yes</option>
+                            <option value="NO" {$selectedNo}>No</option>
                         </select>
                     </div>
                 </div>

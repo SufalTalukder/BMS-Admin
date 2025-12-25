@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\BannerModel;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class BannerController extends Common
 {
@@ -18,7 +19,7 @@ class BannerController extends Common
         $this->session          = session();
         $this->bannerModel      = new BannerModel();
         $this->authUserModel    = new AuthUserModel();
-        $this->customHelper     = new \CustomHelper();
+        $this->customHelper     = new CustomHelper();
     }
 
     public function banner_list_view()
@@ -64,6 +65,7 @@ class BannerController extends Common
         );
     }
 
+    // ...existing code...
     public function getAllBannersAJAX()
     {
         if (!$this->request->isAJAX()) {
@@ -89,21 +91,33 @@ class BannerController extends Common
         $html = '';
         $i = 1;
         foreach ($result->content as $eachBanner) {
-            $img = !empty($eachBanner->appBannerImage) ? base_url($eachBanner->appBannerImage) : base_url('assets/img/admin.jfif');
+            $img = !empty($eachBanner->appBannerImage)
+                ? base_url($eachBanner->appBannerImage)
+                : base_url('assets/img/admin.jfif');
+
+            $authUserName = isset($eachBanner->authUserInfo->authUserName) && $eachBanner->authUserInfo->authUserName !== ''
+                ? esc($eachBanner->authUserInfo->authUserName)
+                : '-';
+
+            $createdAt = isset($eachBanner->appBannerCreatedAt) && $eachBanner->appBannerCreatedAt
+                ? $this->customHelper->formatDateTime($eachBanner->appBannerCreatedAt)
+                : '-';
+
+            $appBannerId = isset($eachBanner->appBannerId) ? esc($eachBanner->appBannerId) : '';
 
             $html .=
                 <<<HTML
                     <tr>
                         <td>#{$i}</td>
                         <td>
-                            <a href="{$img}" target="_blank">
-                                <img src="{$img}" style="height:60px; width:90px;">
+                            <a href="{$img}" target="_blank" rel="noopener noreferrer">
+                                <img src="{$img}" alt="banner-{$i}" style="height:60px; width:90px; object-fit:cover;">
                             </a>
                         </td>
-                        <td>{esc($eachBanner->authUserInfo->authUserName)}</td>
-                        <td>{$this->customHelper->formatDateTime($eachBanner->appBannerCreatedAt)}</td>
+                        <td>{$authUserName}</td>
+                        <td>{$createdAt}</td>
                         <td>
-                            <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteBanner('{$eachBanner->appBannerId}')">🗑</button>
+                            <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteBanner('{$appBannerId}')">🗑</button>
                         </td>
                     </tr>
                 HTML;
@@ -115,6 +129,7 @@ class BannerController extends Common
             'html'   => $html
         ]);
     }
+    // ...existing code...
 
     public function deleteBannerAJAX()
     {

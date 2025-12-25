@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\Admin\Common;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class AuthUserController extends Common
 {
@@ -15,7 +16,7 @@ class AuthUserController extends Common
     {
         $this->session          = session();
         $this->authUserModel    = new AuthUserModel();
-        $this->customHelper     = new \CustomHelper();
+        $this->customHelper     = new CustomHelper();
     }
 
     public function auth_user_list_view()
@@ -130,9 +131,9 @@ class AuthUserController extends Common
                                 <img src="{$img}" style="height:60px;width:90px;">
                             </a>
                         </td>
-                        <td>{esc($eachAuthUser->authUserName)}</td>
-                        <td>{esc($eachAuthUser->authUserEmailAddress)}</td>
-                        <td>{esc($eachAuthUser->authUserPhoneNumber)}</td>
+                        <td>$eachAuthUser->authUserName</td>
+                        <td>$eachAuthUser->authUserEmailAddress</td>
+                        <td>$eachAuthUser->authUserPhoneNumber</td>
                         <td>
                             <span class="{$typeClass}">{$typeText}</span>
                         </td>
@@ -238,7 +239,7 @@ class AuthUserController extends Common
                     <select class="form-select" name="updateAuthActive" id="updateAuthActive" required>
                         <option value="">-- Select --</option>
                         <option value="YES" {$this->customHelper->isSelected($updateAuthActive, 'YES')}>Yes</option>
-                        <option value="NO" {$this->customHelper->isSelected($updateAuthActive, 'YES')}>No</option>
+                        <option value="NO" {$this->customHelper->isSelected($updateAuthActive, 'NO')}>No</option>
                     </select>
                     </div>
                 </div>

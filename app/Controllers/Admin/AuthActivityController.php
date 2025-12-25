@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\AuthActivityModel;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class AuthActivityController extends Common
 {
@@ -18,7 +19,7 @@ class AuthActivityController extends Common
         $this->session           = session();
         $this->authActivityModel = new AuthActivityModel();
         $this->authUserModel     = new AuthUserModel();
-        $this->customHelper      = new \CustomHelper();
+        $this->customHelper      = new CustomHelper();
     }
 
     public function auth_activity_list_view()
@@ -75,7 +76,7 @@ class AuthActivityController extends Common
                         <td>
                             <span class="{$methodClass}">{$methodText}</span>
                         </td>
-                        <td>{esc($activity->actionLogMessage)}</td>
+                        <td>$activity->actionLogMessage</td>
                         <td>{$this->customHelper->formatDateTime($activity->actionLogCreatedAt)}</td>
                     </tr>
                 HTML;

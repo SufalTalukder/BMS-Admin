@@ -163,15 +163,13 @@
         const formData = new FormData();
         formData.append('languageName', addLanguageName);
         formData.append('languageActive', addLanguageActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('add-language') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
@@ -204,7 +202,7 @@
                     $('.datatable tbody').html(response.html);
                     $('.datatable').DataTable({
                         order: [
-                            [4, 'desc']
+                            [3, 'asc']
                         ]
                     });
                 } else {
@@ -276,15 +274,13 @@
         formData.append('updateLanguageId', updateLanguageId);
         formData.append('updateLanguageName', updateLanguageName);
         formData.append('updateLanguageActive', updateLanguageActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('update-language') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {

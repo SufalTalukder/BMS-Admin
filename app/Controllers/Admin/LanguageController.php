@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\LanguageModel;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class LanguageController extends Common
 {
@@ -18,7 +19,7 @@ class LanguageController extends Common
         $this->session        = session();
         $this->languageModel  = new LanguageModel();
         $this->authUserModel  = new AuthUserModel();
-        $this->customHelper   = new \CustomHelper();
+        $this->customHelper   = new CustomHelper();
     }
 
     public function language_settings_view()
@@ -87,13 +88,25 @@ class LanguageController extends Common
         foreach ($result->content as $eachLanguage) {
             list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachLanguage->languageActive);
 
+            $authUserName = isset($eachLanguage->authUserInfo->authUserName) && $eachLanguage->authUserInfo->authUserName !== ''
+                ? esc($eachLanguage->authUserInfo->authUserName)
+                : '-';
+
+            $languageName = isset($eachLanguage->languageName) && $eachLanguage->languageName !== ''
+                ? esc($eachLanguage->languageName)
+                : '-';
+
+            $languageId = isset($eachLanguage->languageId) && $eachLanguage->languageId !== ''
+                ? esc($eachLanguage->languageId)
+                : '';
+
             // Heredoc syntax of HTML
             $html .=
                 <<<HTML
                     <tr>
                         <td>#{$i}</td>
-                        <td>{esc($eachLanguage->languageName)}</td>
-                        <td>{esc($eachLanguage->authUserInfo->authUserName)}</td>
+                        <td>{$languageName}</td>
+                        <td>{$authUserName}</td>
                         <td>{$this->customHelper->formatDateTime($eachLanguage->languageCreatedAt)}</td>
                         <td>{$this->customHelper->formatDateTime($eachLanguage->languageUpdatedAt)}</td>
                         <td>
@@ -101,11 +114,11 @@ class LanguageController extends Common
                         </td>
                         <td>
                             <button class="btn btn-sm btn-info rounded-pill"
-                                    onclick="getLanguage('{$eachLanguage->languageId}')">
+                                    onclick="getLanguage('{$languageId}')">
                                 ✏️
                             </button>
                             <button class="btn btn-sm btn-danger rounded-pill"
-                                    onclick="deleteLanguage('{$eachLanguage->languageId}')">
+                                    onclick="deleteLanguage('{$languageId}')">
                                 🗑
                             </button>
                         </td>

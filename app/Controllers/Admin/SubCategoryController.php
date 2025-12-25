@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Admin\Common;
 use App\Models\Admin\SubCategoryModel;
 use App\Models\Admin\AuthUserModel;
+use App\Helpers\CustomHelper;
 
 class SubCategoryController extends Common
 {
@@ -15,10 +16,10 @@ class SubCategoryController extends Common
 
     public function __construct()
     {
-        $this->session        = session();
-        $this->subCategoryModel  = new SubCategoryModel();
-        $this->authUserModel  = new AuthUserModel();
-        $this->customHelper   = new \CustomHelper();
+        $this->session              = session();
+        $this->subCategoryModel     = new SubCategoryModel();
+        $this->authUserModel        = new AuthUserModel();
+        $this->customHelper         = new CustomHelper();
     }
 
     public function sub_category_view()
@@ -87,12 +88,20 @@ class SubCategoryController extends Common
         foreach ($result->content as $eachSubCategory) {
             list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachSubCategory->subCategoryActive);
 
+            $authUserName = isset($eachSubCategory->authUserInfo->authUserName) && $eachSubCategory->authUserInfo->authUserName !== ''
+                ? esc($eachSubCategory->authUserInfo->authUserName)
+                : '-';
+
+            $subCategoryName = isset($eachSubCategory->subCategoryName) && $eachSubCategory->subCategoryName !== '' ? esc($eachSubCategory->subCategoryName) : '-';
+
+            $subCategoryId = isset($eachSubCategory->subCategoryId) && $eachSubCategory->subCategoryId !== '' ? esc($eachSubCategory->subCategoryId) : '';
+
             $html .=
                 <<<HTML
                     <tr>
                         <td>#{$i}</td>
-                        <td>{esc($eachSubCategory->subCategoryName)}</td>
-                        <td>{esc($eachSubCategory->authUserInfo->authUserName)}</td>
+                        <td>{$subCategoryName}</td>
+                        <td>{$authUserName}</td>
                         <td>{$this->customHelper->formatDateTime($eachSubCategory->subCategoryCreatedAt)}</td>
                         <td>{$this->customHelper->formatDateTime($eachSubCategory->subCategoryUpdatedAt)}</td>
                         <td>
@@ -100,11 +109,11 @@ class SubCategoryController extends Common
                         </td>
                         <td>
                             <button class="btn btn-sm btn-info rounded-pill"
-                                    onclick="getSubCategory('{$eachSubCategory->subCategoryId}')">
+                                    onclick="getSubCategory('{$subCategoryId}')">
                                 ✏️
                             </button>
                             <button class="btn btn-sm btn-danger rounded-pill"
-                                    onclick="deleteSubCategory('{$eachSubCategory->subCategoryId}')">
+                                    onclick="deleteSubCategory('{$subCategoryId}')">
                                 🗑
                             </button>
                         </td>
@@ -153,6 +162,8 @@ class SubCategoryController extends Common
         $subCategoryId = htmlspecialchars($result->content->subCategoryId);
         $subCategoryName = htmlspecialchars($result->content->subCategoryName);
         $subCategoryActive = htmlspecialchars($result->content->subCategoryActive);
+        $subCategoryYes = $subCategoryActive === 'YES' ? 'selected' : '';
+        $subCategoryNo = $subCategoryActive === 'NO' ? 'selected' : '';
 
         $html =
             <<<HTML
@@ -168,8 +179,8 @@ class SubCategoryController extends Common
                     <div class="col-sm-12">
                         <select class="form-select" name="updateSubcategoryActive" id="updateSubcategoryActive" required>
                             <option value="">-- Select --</option>
-                            <option value="YES" {$this->customHelper->getStatusDetails($subCategoryActive, 'YES')}>Yes</option>
-                            <option value="NO" {$this->customHelper->getStatusDetails($subCategoryActive, 'NO')}>No</option>
+                            <option value="YES" {$subCategoryYes}>Yes</option>
+                            <option value="NO" {$subCategoryNo}>No</option>
                         </select>
                     </div>
                 </div>

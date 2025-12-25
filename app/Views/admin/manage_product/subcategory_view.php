@@ -163,15 +163,13 @@
         const formData = new FormData();
         formData.append('subCategoryName', addSubcategoryName);
         formData.append('subCategoryActive', addSubcategoryActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('add-sub-category') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
@@ -204,7 +202,7 @@
                     $('.datatable tbody').html(response.html);
                     $('.datatable').DataTable({
                         order: [
-                            [3, 'desc']
+                            [3, 'asc']
                         ]
                     });
                 } else {
@@ -276,15 +274,13 @@
         formData.append('updateSubcategoryId', updateSubcategoryId);
         formData.append('updateSubcategoryName', updateSubcategoryName);
         formData.append('updateSubcategoryActive', updateSubcategoryActive);
+        formData.append(csrfName, csrfHash);
 
         $.ajax({
             url: "<?= base_url('update-sub-category') ?>",
             type: "POST",
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
+            data: formData,
             processData: false,
             contentType: false,
             success: function(response) {

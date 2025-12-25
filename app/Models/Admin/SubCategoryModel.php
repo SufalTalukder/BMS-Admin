@@ -10,7 +10,7 @@ class SubCategoryModel
         $session = session();
 
         // ADD SUBCATEGORY API CALL
-        $addCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/create-sub-category';
+        $addCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/create-subcategory';
 
         try {
             $response = $client->post($addCategoryAPI, [
@@ -48,7 +48,7 @@ class SubCategoryModel
         $session = session();
 
         // FETCH SUBCATEGORIES API CALL
-        $fetchLangaugesAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/get-all-sub-categories';
+        $fetchLangaugesAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/get-all-subcategory';
 
         try {
             $response = $client->get($fetchLangaugesAPI, [
@@ -77,7 +77,7 @@ class SubCategoryModel
         $session = session();
 
         // FETCH SUBCATEGORY DETAILS API CALL
-        $fetchCategoryDetailsAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/get-sub-category';
+        $fetchCategoryDetailsAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/get-subcategory';
 
         try {
             $response = $client->get($fetchCategoryDetailsAPI, [
@@ -109,7 +109,7 @@ class SubCategoryModel
         $session = session();
 
         // EDIT SUBCATEGORY API CALL
-        $editCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/update-sub-category-details';
+        $editCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/update-subcategory-details';
 
         try {
             $response = $client->put($editCategoryAPI, [
@@ -123,8 +123,8 @@ class SubCategoryModel
                     'subCategoryId' => $updateSubcategoryId
                 ],
                 'json' => [
-                    'subCategoryName'         => $data['updateCategoryName'],
-                    'subCategoryActive'       => $data['updateCategoryActive']
+                    'subCategoryName'         => $data['updateSubcategoryName'],
+                    'subCategoryActive'       => $data['updateSubcategoryActive']
                 ],
                 'timeout' => 10
             ]);
@@ -134,6 +134,11 @@ class SubCategoryModel
                 return [
                     'status'  => true,
                     'message' => 'Subcategory updated successfully.'
+                ];
+            } else if (isset($result->status) && $result->status === 'exist') {
+                return [
+                    'status'  => false,
+                    'message' => $result->message
                 ];
             }
         } catch (\Throwable $e) {
@@ -150,7 +155,7 @@ class SubCategoryModel
         $session = session();
 
         // DELETE SUBCATEGORY API CALL
-        $deleteCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/delete-sub-category';
+        $deleteCategoryAPI = LOCALHOST_8085 . REQUEST_AUTH_MAPPING . '/delete-subcategory';
 
         try {
             $response = $client->delete($deleteCategoryAPI, [
