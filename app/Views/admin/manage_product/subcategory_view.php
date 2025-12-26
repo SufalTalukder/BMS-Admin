@@ -44,7 +44,7 @@
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Add Subcategory</h5>
                     <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="btnClick">
                                 <span id="addSubcategorySpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="saveSubcategory" id="saveSubcategoryText">Save</span>
                             </button>
@@ -86,7 +86,7 @@
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Update Subcategory</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -97,7 +97,7 @@
                             <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="editBtnClick">
                                 <span id="updateSubcategorySpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="updateSubcategory" id="updateSubcategoryText">Update</span>
                             </button>
@@ -111,8 +111,8 @@
 
     <!-- delete subcategory modal starts -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-center">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -138,12 +138,14 @@
         const addSubcategoryName = $('#addSubcategoryName').val().trim();
         const addSubcategoryActive = $('#addSubcategoryActive').val();
 
-        $('#saveSubcategoryText').text('Saving...');
+        $('#btnClick').addClass('disabled');
+        $('#saveSubcategoryText').text('');
         $('#addSubcategorySpinner').show();
 
         function stopLoading() {
             $('#addSubcategorySpinner').hide();
             $('#saveSubcategoryText').text('Save');
+            $('#btnClick').removeClass('disabled');
         }
 
         if (!addSubcategoryName) {
@@ -248,12 +250,14 @@
         const updateSubcategoryName = $('#updateSubcategoryName').val().trim();
         const updateSubcategoryActive = $('#updateSubcategoryActive').val();
 
-        $('#updateSubcategoryText').text('Updating...');
+        $('#editBtnClick').addClass('disabled');
+        $('#updateSubcategoryText').text('');
         $('#updateSubcategorySpinner').show();
 
         function stopLoading() {
             $('#updateSubcategorySpinner').hide();
             $('#updateSubcategoryText').text('Update');
+            $('#editBtnClick').removeClass('disabled');
         }
 
         if (!updateSubcategoryName) {

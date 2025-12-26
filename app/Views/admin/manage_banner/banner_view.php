@@ -42,7 +42,7 @@
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Add Banner</h5>
                     <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="btnClick">
                                 <span id="addBannerSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="saveBanner" id="saveBannerText">Save</span>
                             </button>
@@ -80,8 +80,8 @@
 
     <!-- delete Banner modal starts -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-center">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -107,12 +107,14 @@
         const files = $('#addImageFile')[0].files;
         let formData = new FormData();
 
-        $('#saveBannerText').text('Saving...');
+        $('#btnClick').addClass('disabled');
+        $('#saveBannerText').text('');
         $('#addBannerSpinner').show();
 
         function stopLoading() {
             $('#addBannerSpinner').hide();
             $('#saveBannerText').text('Save');
+            $('#btnClick').removeClass('disabled');
         }
 
         if (!files || files.length === 0) {

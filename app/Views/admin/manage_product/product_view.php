@@ -60,7 +60,7 @@
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Add Product</h5>
                     <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -171,7 +171,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="btnClick">
                                 <span id="addProductSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="saveProduct" id="saveProductText">Save</span>
                             </button>
@@ -187,7 +187,7 @@
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Update Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -195,10 +195,111 @@
                     <div class="card">
                         <div class="card-body" id="editProductBody">
                             <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-                            <!-- dynamic content will be loaded -->
+                            <input type="hidden" id="updateProductId" name="updateProductId">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="updateProductName" id="updateProductName" maxlength="100" autocomplete="new-name" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Category *</label>
+                                <div class="col-sm-12">
+                                    <select class="form-select" name="updateProductCategory" id="updateProductCategory" required>
+                                        <option value="">-- Select --</option>
+                                        <?=
+                                        $category_list = json_encode($category_list);
+                                        $category_list = json_decode($category_list);
+                                        foreach ($category_list as $category) {
+                                            echo '<option value="' . $category->categoryId . '">' . $category->categoryName . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Subcategory *</label>
+                                <div class="col-sm-12">
+                                    <select class="form-select" name="updateProductSubcategory" id="updateProductSubcategory" required>
+                                        <option value="">-- Select --</option>
+                                        <?=
+                                        $subcategory_list = json_encode($subcategory_list);
+                                        $subcategory_list = json_decode($subcategory_list);
+                                        foreach ($subcategory_list as $sub_category) {
+                                            echo '<option value="' . $sub_category->subCategoryId . '">' . $sub_category->subCategoryName . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Language *</label>
+                                <div class="col-sm-12">
+                                    <select class="form-select" name="updateProductLanguage" id="updateProductLanguage" required>
+                                        <option value="">-- Select --</option>
+                                        <?=
+                                        $language_list = json_encode($language_list);
+                                        $language_list = json_decode($language_list);
+                                        foreach ($language_list as $language) {
+                                            echo '<option value="' . $language->languageId . '">' . $language->languageName . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Brand *</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="updateProductBrand" id="updateProductBrand" maxlength="50" autocomplete="new-brand" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">code *</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" name="updateProductCode" id="updateProductCode" maxlength="50" autocomplete="new-code" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Availability *</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" name="updateProductAvailability" id="updateProductAvailability" autocomplete="new-availability" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Price *</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" name="updateProductPrice" id="updateProductPrice" autocomplete="new-price" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Details *</label>
+                                <div class="col-sm-12">
+                                    <textarea type="text" class="form-control" name="updateProductDetails" id="updateProductDetails" autocomplete="new-details" rows="3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Stock *</label>
+                                <div class="col-sm-12">
+                                    <select class="form-select" name="updateProductStock" id="updateProductStock" required>
+                                        <option value="">-- Select --</option>
+                                        <option value="IN_STOCK">In Stock</option>
+                                        <option value="OUT_OF_STOCK">Out of Stock</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
+                                <div class="col-sm-12">
+                                    <select class="form-select" name="updateProductActive" id="updateProductActive" required>
+                                        <option value="">-- Select --</option>
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="editBtnClick">
                                 <span id="updateProductSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="updateProduct" id="updateProductText">Update</span>
                             </button>
@@ -212,8 +313,8 @@
 
     <!-- delete Product modal starts -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-center">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -248,12 +349,14 @@
         const addProductStock = $('#addProductStock').val();
         const addProductActive = $('#addProductActive').val();
 
-        $('#saveProductText').text('Saving...');
+        $('#btnClick').addClass('disabled');
+        $('#saveProductText').text('');
         $('#addProductSpinner').show();
 
         function stopLoading() {
             $('#addProductSpinner').hide();
             $('#saveProductText').text('Save');
+            $('#btnClick').removeClass('disabled');
         }
 
         if (!addProductName) {
@@ -380,27 +483,42 @@
     });
 
     // Get
-    function getProduct(getProductId) {
+    function getProduct(productId) {
         const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
         const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
         $.ajax({
             url: "<?= base_url('get-product-details') ?>",
-            method: "POST",
+            type: "POST",
+            dataType: "json",
             data: {
-                getProductId: getProductId,
+                productId: productId,
                 [csrfName]: csrfHash
             },
-            dataType: "json",
             success: function(response) {
                 if (response.status) {
-                    $('#editProductBody').html(response.html);
+                    const p = response.data;
+
+                    $('#updateProductId').val(p.productId);
+                    $('#updateProductName').val(p.productName);
+                    $('#updateProductBrand').val(p.productBrand);
+                    $('#updateProductCode').val(p.productCode);
+                    $('#updateProductAvailability').val(p.productAvailability);
+                    $('#updateProductPrice').val(p.productPrice);
+                    $('#updateProductDetails').val(p.productDetails);
+
+                    $('#updateProductCategory').val(p.categoryId);
+                    $('#updateProductSubcategory').val(p.subCategoryId);
+                    $('#updateProductLanguage').val(p.languageId);
+                    $('#updateProductStock').val(p.productStock);
+                    $('#updateProductActive').val(p.productActive);
+
                     $('#editModal').modal('show');
                 } else {
                     showToast(response.message, "error");
                 }
             },
-            error: function(xhr, status, error) {
+            error: function() {
                 showToast("Server error!", "error");
             }
         });
@@ -408,55 +526,106 @@
 
     // Update
     $(document).on('click', '.updateProduct', function() {
-        const updateProductId = $('#updateProductId').val();
-        const updateProductName = $('#updateProductName').val().trim();
-        const updateProductActive = $('#updateProductActive').val();
 
-        $('#updateProductText').text('Updating...');
+        const updateProductId = $('#updateProductId').val();
+
+        const formData = new FormData();
+        formData.append('updateProductId', updateProductId);
+        formData.append('updateProductName', $('#updateProductName').val().trim());
+        formData.append('updateProductCategory', $('#updateProductCategory').val());
+        formData.append('updateProductSubCategory', $('#updateProductSubcategory').val());
+        formData.append('updateProductLanguage', $('#updateProductLanguage').val());
+        formData.append('updateProductBrand', $('#updateProductBrand').val().trim());
+        formData.append('updateProductCode', $('#updateProductCode').val().trim());
+        formData.append('updateProductAvailability', $('#updateProductAvailability').val());
+        formData.append('updateProductPrice', $('#updateProductPrice').val());
+        formData.append('updateProductDetails', $('#updateProductDetails').val().trim());
+        formData.append('updateProductStock', $('#updateProductStock').val());
+        formData.append('updateProductActive', $('#updateProductActive').val());
+
+        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
+        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
+        formData.append(csrfName, csrfHash);
+
+        $('#editBtnClick').addClass('disabled');
+        $('#updateProductText').text('');
         $('#updateProductSpinner').show();
 
         function stopLoading() {
             $('#updateProductSpinner').hide();
             $('#updateProductText').text('Update');
+            $('#editBtnClick').removeClass('disabled');
         }
 
-        if (!updateProductName) {
+        if (!$('#updateProductName').val().trim()) {
             showToast("Product name is required.", "warning");
             stopLoading();
             return;
         }
-        if (!updateProductActive) {
+        if (!$('#updateProductCategory').val()) {
+            showToast("Category is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductSubcategory').val()) {
+            showToast("Subcategory is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductLanguage').val()) {
+            showToast("Language is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductBrand').val().trim()) {
+            showToast("Brand is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductCode').val().trim()) {
+            showToast("Code is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductAvailability').val()) {
+            showToast("Availability is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductPrice').val()) {
+            showToast("Price is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductDetails').val().trim()) {
+            showToast("Detail is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductStock').val()) {
+            showToast("Stock status is required.", "warning");
+            stopLoading();
+            return;
+        }
+        if (!$('#updateProductActive').val()) {
             showToast("Active status is required.", "warning");
             stopLoading();
             return;
         }
 
-        const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
-        const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
-
-        const formData = new FormData();
-        formData.append('updateProductId', updateProductId);
-        formData.append('updateProductName', updateProductName);
-        formData.append('updateProductActive', updateProductActive);
-
         $.ajax({
-            url: "<?= base_url('update-sub-category') ?>",
+            url: "<?= base_url('update-product') ?>",
             type: "POST",
+            data: formData,
             dataType: "json",
-            data: {
-                formData,
-                [csrfName]: csrfHash
-            },
             processData: false,
             contentType: false,
             success: function(response) {
                 if (response.status) {
-                    showToast("Product updated successfully!", "success");
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1000);
+                    showToast(response.message || "Product updated successfully!", "success");
+                    setTimeout(() => location.reload(), 1000);
                 } else {
-                    showToast(response.message || "Something went wrong.", "error");
+                    showToast(response.message || "Update failed.", "error");
                 }
             },
             error: function() {
@@ -476,7 +645,7 @@
 
         $('#confirmDelete').off('click').on('click', function() {
             $.ajax({
-                url: "<?= base_url('delete-sub-category') ?>",
+                url: "<?= base_url('delete-product') ?>",
                 method: "POST",
                 data: {
                     deleteProductId: deleteProductId,

@@ -82,7 +82,7 @@ class ProductModel
         }
     }
 
-    public function getProductDetailsAJAX($getSubCategoryId)
+    public function getProductDetailsAJAX($productId)
     {
         $client  = \Config\Services::curlrequest();
         $session = session();
@@ -99,7 +99,7 @@ class ProductModel
                     'Accept'       => 'application/json'
                 ],
                 'query' => [
-                    'subCategoryId' => $getSubCategoryId
+                    'productId' => $productId
                 ],
                 'timeout' => 10
             ]);
@@ -114,39 +114,53 @@ class ProductModel
         }
     }
 
-    public function updateProductAJAX($updateSubcategoryId, $data)
+    public function updateProductAJAX($productId, $data)
     {
-        $client = \Config\Services::curlrequest();
+        $client  = \Config\Services::curlrequest();
         $session = session();
 
-        // EDIT PRODUCT API CALL
-        $editCategoryAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/update-product-details';
+        $updateProductAPI = LOCALHOST_8086 . REQUEST_AUTH_MAPPING . '/update-product-details';
 
         try {
-            $response = $client->put($editCategoryAPI, [
+            $response = $client->put($updateProductAPI, [
                 'headers' => [
-                    'authToken'     => $session->get('admin_auth_token'),
-                    'x-api-key'     => XAPIKEY,
-                    'x-api-secret'  => XAPISECRET,
-                    'Accept'        => 'application/json'
+                    'authToken'    => $session->get('admin_auth_token'),
+                    'x-api-key'    => XAPIKEY,
+                    'x-api-secret' => XAPISECRET,
+                    'Accept'       => 'application/json'
                 ],
                 'query' => [
-                    'subCategoryId' => $updateSubcategoryId
+                    'productId' => $productId,
+                    'categoryId'    => $data['categoryId'],
+                    'subCategoryId' => $data['subCategoryId'],
+                    'languageId'    => $data['languageId']
                 ],
                 'json' => [
-                    'subCategoryName'         => $data['updateCategoryName'],
-                    'subCategoryActive'       => $data['updateCategoryActive']
+                    'productName'         => $data['productName'],
+                    'productBrand'        => $data['productBrand'],
+                    'productCode'         => $data['productCode'],
+                    'productAvailability' => $data['productAvailability'],
+                    'productPrice'        => $data['productPrice'],
+                    'productDetails'      => $data['productDetails'],
+                    'productStock'        => $data['productStock'],
+                    'productActive'       => $data['productActive']
                 ],
                 'timeout' => 10
             ]);
 
             $result = json_decode($response->getBody());
-            if (isset($result->status) && $result->status === 'success') {
+
+            if (!empty($result->status) && $result->status === 'success') {
                 return [
                     'status'  => true,
                     'message' => 'Product updated successfully.'
                 ];
             }
+
+            return [
+                'status'  => false,
+                'message' => $result->message ?? 'Update failed.'
+            ];
         } catch (\Throwable $e) {
             return [
                 'status'  => false,
@@ -155,7 +169,7 @@ class ProductModel
         }
     }
 
-    public function deleteProductAJAX($deleteSubCategoryId)
+    public function deleteProductAJAX($deleteProductId)
     {
         $client = \Config\Services::curlrequest();
         $session = session();
@@ -172,7 +186,7 @@ class ProductModel
                     'Accept'        => 'application/json'
                 ],
                 'query' => [
-                    'subCategoryId' => $deleteSubCategoryId
+                    'productId' => $deleteProductId
                 ],
                 'timeout' => 10
             ]);

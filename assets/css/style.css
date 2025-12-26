@@ -370,7 +370,7 @@ h6 {
 }
 
 .logo span {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: #012970;
   font-family: "Nunito", sans-serif;
@@ -721,7 +721,7 @@ h6 {
 }
 
 .sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 
 .sidebar-nav .nav-content {

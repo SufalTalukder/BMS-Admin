@@ -47,7 +47,8 @@
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header custom-modal-header">
+        <!-- <div class="modal-header custom-modal-header"> -->
+        <div class="modal-header">
           <h5 class="modal-title">Add Auth User</h5>
           <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -107,7 +108,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" id="btnClick">
                 <span id="addAuthSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                 <span class="saveAuthUser" id="saveAuthText">Save</span>
               </button>
@@ -123,7 +124,8 @@
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header custom-modal-header">
+        <!-- <div class="modal-header custom-modal-header"> -->
+        <div class="modal-header">
           <h5 class="modal-title">Update Auth User</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -134,7 +136,7 @@
               <!-- dynamic content will be loaded -->
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" id="editBtnClick">
                 <span id="updateAuthSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                 <span class="updateAuthUser" id="updateAuthText">Update</span>
               </button>
@@ -149,14 +151,16 @@
   <!-- delete auth modal starts -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
     data-bs-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-      <div class="modal-content text-center">
+    <!-- <div class="modal-dialog modal-dialog-centered modal-sm"> -->
+    <div class="modal-dialog">
+      <!-- <div class="modal-content text-center"> -->
+      <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete this auth?</p>
+          <p>Are you sure you want to delete this Auth?</p>
           <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
         </div>
         <div class="modal-footer">
@@ -182,12 +186,14 @@
     const addImageFile = $('#addImageFile')[0].files[0];
     const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
 
-    $('#saveAuthText').text('Saving...');
+    $('#saveAuthText').text('');
     $('#addAuthSpinner').show();
+    $('#btnClick').addClass('disabled');
 
     function stopLoading() {
       $('#addAuthSpinner').hide();
       $('#saveAuthText').text('Save');
+      $('#btnClick').removeClass('disabled');
     }
 
     if (!addAuthName) {
@@ -339,12 +345,14 @@
     const updateImageFile = $('#updateImageFile')[0].files[0];
     const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
 
-    $('#updateAuthText').text('Updating...');
+    $('#editBtnClick').addClass('disabled');
+    $('#updateAuthText').text('');
     $('#updateAuthSpinner').show();
 
     function stopLoading() {
       $('#updateAuthSpinner').hide();
       $('#updateAuthText').text('Update');
+      $('#editBtnClick').removeClass('disabled');
     }
 
     if (!updateAuthName) {

@@ -100,7 +100,7 @@ define('EVENT_PRIORITY_HIGH', 10);
 // ==================================================================================== //
 
 // PROJECT NAME
-define('PROJECT_NAME', 'Gitapress E-commerce');
+define('PROJECT_NAME', 'GitaPress Admin');
 define('PROJECT_ABOUT', 'Gitapress E-commerce is a cutting-edge online platform dedicated to providing a seamless and enjoyable shopping experience for book enthusiasts. Our mission is to connect readers with a vast collection of books across various genres, authors, and formats, making it easy for them to discover, purchase, and enjoy their favorite reads from the comfort of their homes. With a user-friendly interface, secure payment options, and prompt delivery services, Gitapress E-commerce aims to be the go-to destination for book lovers worldwide.');
 
 // API KEYS

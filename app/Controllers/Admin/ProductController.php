@@ -204,112 +204,31 @@ class ProductController extends Common
             ]);
         }
 
-        $productId = htmlspecialchars(strip_tags($productId));
-        $result = $this->productModel->getProductDetailsAJAX($productId);
-        if (
-            empty($result) ||
-            !isset($result->status) ||
-            $result->status !== 'success' ||
-            empty($result->content)
-        ) {
+        $product = $this->productModel->getProductDetailsAJAX($productId);
+
+        if (!$product) {
             return $this->response->setJSON([
                 'status' => false,
                 'message' => 'Product details not found.'
             ]);
         }
 
-        $productId = htmlspecialchars($result->content->productId);
-        $ProductName = htmlspecialchars($result->content->ProductName);
-        $ProductActive = htmlspecialchars($result->content->ProductActive);
-
-        $html =
-            <<<HTML
-                <input type="hidden" id="updateProductId" name="updateProductId" value="{$productId}">
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" name="updateProductName" id="updateProductName" value="{$ProductName}" maxlength="100" autocomplete="new-name" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Category *</label>
-                    <div class="col-sm-12">
-                        <select class="form-select" name="updateProductCategory" id="updateProductCategory" required>
-                            <option value="">-- Select --</option>
-                            <option value="YES">Yes</option>
-                            <option value="NO">No</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Subcategory *</label>
-                    <div class="col-sm-12">
-                        <select class="form-select" name="updateProductSubcategory" id="updateProductSubcategory" required>
-                            <option value="">-- Select --</option>
-                            <option value="YES">Yes</option>
-                            <option value="NO">No</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Language *</label>
-                    <div class="col-sm-12">
-                        <select class="form-select" name="updateProductLanguage" id="updateProductLanguage" required>
-                            <option value="">-- Select --</option>
-                            <option value="YES">Yes</option>
-                            <option value="NO">No</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Brand *</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" name="updateProductBrand" id="updateProductBrand" maxlength="50" autocomplete="new-brand" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">code *</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" name="updateProductCode" id="updateProductCode" maxlength="50" autocomplete="new-code" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Availability *</label>
-                    <div class="col-sm-12">
-                        <input type="number" class="form-control" name="updateProductAvailability" id="updateProductAvailability" autocomplete="new-availability" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Price *</label>
-                    <div class="col-sm-12">
-                        <input type="number" class="form-control" name="updateProductPrice" id="updateProductPrice" autocomplete="new-price" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Stock *</label>
-                    <div class="col-sm-12">
-                        <select class="form-select" name="updateProductStock" id="updateProductStock" required>
-                            <option value="">-- Select --</option>
-                            <option value="IN_STOCK">In Stock</option>
-                            <option value="OUT_OF_STOCK">Out of Stock</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
-                    <div class="col-sm-12">
-                        <select class="form-select" name="updateProductActive" id="updateProductActive" required>
-                            <option value="">-- Select --</option>
-                            <option value="YES" {$this->customHelper->getStatusDetails($ProductActive, 'YES')}>Yes</option>
-                            <option value="NO" {$this->customHelper->getStatusDetails($ProductActive, 'NO')}>No</option>
-                        </select>
-                    </div>
-                </div>
-            HTML;
-
         return $this->response->setJSON([
             'status' => true,
-            'html'   => $html
+            'data' => [
+                'productId'        => $product->content->productId,
+                'productName'      => $product->content->productName,
+                'productBrand'     => $product->content->productBrand,
+                'productCode'      => $product->content->productCode,
+                'productAvailability' => $product->content->productAvailability,
+                'productPrice'     => $product->content->productPrice,
+                'productDetails'   => $product->content->productDetails,
+                'productStock'     => $product->content->productStock,
+                'productActive'    => $product->content->productActive,
+                'categoryId'       => $product->content->categoryInfo->categoryId,
+                'subCategoryId'    => $product->content->subCategoryInfo->subCategoryId,
+                'languageId'       => $product->content->languageInfo->languageId,
+            ]
         ]);
     }
 
@@ -322,21 +241,30 @@ class ProductController extends Common
             ]);
         }
 
-        $updateProductId = $this->request->getPost('updateProductId');
-        if (!$updateProductId) {
+        $productId = $this->request->getPost('updateProductId');
+        if (!$productId) {
             return $this->response->setJSON([
                 'status' => false,
-                'message' => 'Category ID missing.'
+                'message' => 'Product ID missing.'
             ]);
         }
 
         $data = [
-            'updateProductName'         => trim($this->request->getPost('updateProductName')),
-            'updateProductActive'       => $this->request->getPost('updateProductActive')
+            'productName'        => trim($this->request->getPost('updateProductName')),
+            'categoryId'         => $this->request->getPost('updateProductCategory'),
+            'subCategoryId'      => $this->request->getPost('updateProductSubCategory'),
+            'languageId'         => $this->request->getPost('updateProductLanguage'),
+            'productBrand'       => trim($this->request->getPost('updateProductBrand')),
+            'productCode'        => trim($this->request->getPost('updateProductCode')),
+            'productAvailability' => $this->request->getPost('updateProductAvailability'),
+            'productPrice'       => $this->request->getPost('updateProductPrice'),
+            'productDetails'     => trim($this->request->getPost('updateProductDetails')),
+            'productStock'       => $this->request->getPost('updateProductStock'),
+            'productActive'      => $this->request->getPost('updateProductActive')
         ];
 
         return $this->response->setJSON(
-            $this->productModel->updateProductAJAX($updateProductId, $data)
+            $this->productModel->updateProductAJAX($productId, $data)
         );
     }
 

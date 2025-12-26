@@ -1,7 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
         <a href="<?= base_url('admin/auth-users') ?>" class="logo d-flex align-items-center">
-            <img src="<?= base_url('assets/img/e-com.jfif') ?>" alt="E-commerce Logo">
+            <img src="<?= base_url('assets/img/logo.png') ?>" alt="E-commerce Logo">
             <span class="d-none d-lg-block"><?= PROJECT_NAME; ?></span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>

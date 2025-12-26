@@ -1,6 +1,6 @@
 <main id="main" class="main">
     <div class="pagetitle d-flex justify-content-between align-items-center">
-        <h1 class="mb-0">Manage languages</h1>
+        <h1 class="mb-0">Manage Languages</h1>
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addModal">
             + Add Record
         </button>
@@ -44,9 +44,9 @@
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Add Language</h5>
-                    <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close red-bold" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="card">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="btnClick">
                                 <span id="addLanguageSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="saveLanguage" id="saveLanguageText">Save</span>
                             </button>
@@ -86,7 +86,7 @@
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header custom-modal-header">
+                <div class="modal-header">
                     <h5 class="modal-title">Update Language</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -97,7 +97,7 @@
                             <!-- dynamic content will be loaded -->
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" id="editBtnClick">
                                 <span id="updateLanguageSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
                                 <span class="updateLanguage" id="updateLanguageText">Update</span>
                             </button>
@@ -111,8 +111,8 @@
 
     <!-- delete Language modal starts -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-center">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -138,12 +138,14 @@
         const addLanguageName = $('#addLanguageName').val().trim();
         const addLanguageActive = $('#addLanguageActive').val();
 
-        $('#saveLanguageText').text('Saving...');
+        $('#btnClick').addClass('disabled');
+        $('#saveLanguageText').text('');
         $('#addLanguageSpinner').show();
 
         function stopLoading() {
             $('#addLanguageSpinner').hide();
             $('#saveLanguageText').text('Save');
+            $('#btnClick').removeClass('disabled');
         }
 
         if (!addLanguageName) {
@@ -248,12 +250,14 @@
         const updateLanguageName = $('#updateLanguageName').val().trim();
         const updateLanguageActive = $('#updateLanguageActive').val();
 
-        $('#updateLanguageText').text('Updating...');
+        $('#editBtnClick').addClass('disabled');
+        $('#updateLanguageText').text('');
         $('#updateLanguageSpinner').show();
 
         function stopLoading() {
             $('#updateLanguageSpinner').hide();
             $('#updateLanguageText').text('Update');
+            $('#editBtnClick').removeClass('disabled');
         }
 
         if (!updateLanguageName) {
