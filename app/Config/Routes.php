@@ -23,6 +23,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     // Auth Users View Routes
     $routes->get('auth-users-service', 'AuthUserController::auth_user_list_view');
 
+    // Users View Routes
+    $routes->get('users-service', 'UserController::users_view');
+
     // Activity View Routes
     $routes->get('activity-service', 'AuthActivityController::auth_activity_list_view');
 
@@ -58,6 +61,13 @@ $routes->get('fetch-auth-users', 'Admin\AuthUserController::getAllAuthUsersAJAX'
 $routes->post('get-auth-user-details', 'Admin\AuthUserController::getAuthUserDetailsAJAX');
 $routes->post('update-auth-user', 'Admin\AuthUserController::updateAuthUserAJAX');
 $routes->post('delete-auth-user', 'Admin\AuthUserController::deleteAuthUserAJAX');
+
+// User APIs
+$routes->post('add-user', 'Admin\UserController::addUserAJAX');
+$routes->get('fetch-users', 'Admin\UserController::getAllUsersAJAX');
+$routes->post('get-user-details', 'Admin\UserController::getUserDetailsAJAX');
+$routes->post('update-user', 'Admin\UserController::updateUserAJAX');
+$routes->post('delete-user', 'Admin\UserController::deleteUserAJAX');
 
 // Auth Activity APIs
 $routes->get('fetch-auth-activity', 'Admin\AuthActivityController::getAllAuthActivityAJAX');

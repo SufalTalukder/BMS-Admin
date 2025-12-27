@@ -27,7 +27,10 @@
                             <tbody id="tcategory">
                                 <tr>
                                     <td colspan="9">
-                                        <center id="categoryResponse">Categorie(s) List Loading...</center>
+                                        <center id="categoryResponse">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Categorie(s) Loading...
+                                        </center>
                                     </td>
                                 </tr>
                             </tbody>

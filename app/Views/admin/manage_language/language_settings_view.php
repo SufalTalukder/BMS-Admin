@@ -27,7 +27,10 @@
                             <tbody id="tcategory">
                                 <tr>
                                     <td colspan="9">
-                                        <center id="languageResponse">Languages(s) List Loading...</center>
+                                        <center id="languageResponse">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Languages(s) Loading...
+                                        </center>
                                     </td>
                                 </tr>
                             </tbody>

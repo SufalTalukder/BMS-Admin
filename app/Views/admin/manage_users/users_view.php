@@ -1,6 +1,6 @@
 <main id="main" class="main">
   <div class="pagetitle d-flex justify-content-between align-items-center">
-    <h1 class="mb-0">Manage Auth Users</h1>
+    <h1 class="mb-0">Manage Users</h1>
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addModal">
       + Add Record
     </button>
@@ -18,9 +18,12 @@
                   <th>Sr. No.</th>
                   <th>Image</th>
                   <th>Name</th>
-                  <th>Email</th>
                   <th>Ph. No.</th>
-                  <th>Type</th>
+                  <th>Email</th>
+                  <th>DOB</th>
+                  <th>Address</th>
+                  <th>Referral Code</th>
+                  <th>Action By</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                   <th>Active</th>
@@ -30,9 +33,9 @@
               <tbody id="tcategory">
                 <tr>
                   <td colspan="9">
-                    <center id="authUsersResponse">
+                    <center id="usersResponse">
                       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                      Auth User(s) Loading...
+                      User(s) Loading...
                     </center>
                   </td>
                 </tr>
@@ -50,9 +53,8 @@
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <!-- <div class="modal-header custom-modal-header"> -->
         <div class="modal-header">
-          <h5 class="modal-title">Add Auth User</h5>
+          <h5 class="modal-title">Add User</h5>
           <button type="button" class="btn-close red-bold " data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -62,13 +64,13 @@
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-12 col-form-label">Name *</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="addAuthName" id="addAuthName" maxlength="100" autocomplete="new-name" required>
+                  <input type="text" class="form-control" name="addName" id="addName" maxlength="100" autocomplete="new-name" required>
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-12 col-form-label">Email Address *</label>
                 <div class="col-sm-12">
-                  <input type="email" class="form-control" name="addAuthEmail" id="addAuthEmail" maxlength="50" autocomplete="new-email" required>
+                  <input type="email" class="form-control" name="addEmail" id="addEmail" maxlength="50" autocomplete="new-email" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -78,42 +80,32 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Password *</label>
+                <label for="inputText" class="col-sm-12 col-form-label">Date of Birth *</label>
                 <div class="col-sm-12">
-                  <input type="password" class="form-control" name="addPassword" id="addPassword" maxlength="50" autocomplete="new-password" required>
+                  <input type="date" class="form-control" name="addDOB" id="addDOB" autocomplete="new-dob" required>
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-12 col-form-label">Type *</label>
+                <label for="inputText" class="col-sm-12 col-form-label">Address *</label>
                 <div class="col-sm-12">
-                  <select class="form-select" name="addAuthType" id="addAuthType" required>
-                    <option value="">-- Select --</option>
-                    <option value="SUPER_ADMIN">Super Admin</option>
-                    <option value="ADMIN">Admin</option>
-                  </select>
+                  <input type="text" class="form-control" name="addAddress" id="addAddress" maxlength="100" autocomplete="new-address" required>
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-12 col-form-label">Active *</label>
                 <div class="col-sm-12">
-                  <select class="form-select" name="addAuthActive" id="addAuthActive" required>
+                  <select class="form-select" name="addActive" id="addActive" required>
                     <option value="">-- Select --</option>
                     <option value="YES">Yes</option>
                     <option value="NO">No</option>
                   </select>
                 </div>
               </div>
-              <div class="row mb-3">
-                <label for="inputFile" class="col-sm-12 col-form-label">Upload Image</label>
-                <div class="col-sm-12">
-                  <input type="file" class="form-control" name="image" id="addImageFile" accept="png, jpg, jpeg">
-                </div>
-              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" id="btnClick">
-                <span id="addAuthSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
-                <span class="saveAuthUser" id="saveAuthText">Save</span>
+                <span id="addUserSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
+                <span class="saveUser" id="saveUserText">Save</span>
               </button>
             </div>
           </div>
@@ -127,21 +119,20 @@
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <!-- <div class="modal-header custom-modal-header"> -->
         <div class="modal-header">
-          <h5 class="modal-title">Update Auth User</h5>
+          <h5 class="modal-title">Update User</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="card-body" id="editAuthBody">
+            <div class="card-body" id="editUserBody">
               <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
               <!-- dynamic content will be loaded -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" id="editBtnClick">
-                <span id="updateAuthSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
-                <span class="updateAuthUser" id="updateAuthText">Update</span>
+                <span id="updateUserSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none; pointer-events: none;"></span>
+                <span class="updateUser" id="updateUserText">Update</span>
               </button>
             </div>
           </div>
@@ -154,16 +145,14 @@
   <!-- delete auth modal starts -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
     data-bs-backdrop="static" data-keyboard="false">
-    <!-- <div class="modal-dialog modal-dialog-centered modal-sm"> -->
     <div class="modal-dialog">
-      <!-- <div class="modal-content text-center"> -->
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete this Auth?</p>
+          <p>Are you sure you want to delete this User?</p>
           <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
         </div>
         <div class="modal-footer">
@@ -179,32 +168,30 @@
 
 <script type="text/javascript">
   // Add
-  $(document).on('click', '.saveAuthUser', function() {
-    const addAuthName = $('#addAuthName').val().trim();
-    const addAuthEmail = $('#addAuthEmail').val().trim();
+  $(document).on('click', '.saveUser', function() {
+    const addName = $('#addName').val().trim();
+    const addEmail = $('#addEmail').val().trim();
     const addPhoneNumber = $('#addPhoneNumber').val().trim();
-    const addPassword = $('#addPassword').val().trim();
-    const addAuthType = $('#addAuthType').val();
-    const addAuthActive = $('#addAuthActive').val();
-    const addImageFile = $('#addImageFile')[0].files[0];
-    const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
+    const addDOB = $('#addDOB').val();
+    const addAddress = $('#addAddress').val().trim();
+    const addActive = $('#addActive').val();
 
-    $('#saveAuthText').text('');
-    $('#addAuthSpinner').show();
+    $('#saveUserText').text('');
+    $('#addUserSpinner').show();
     $('#btnClick').addClass('disabled');
 
     function stopLoading() {
-      $('#addAuthSpinner').hide();
-      $('#saveAuthText').text('Save');
+      $('#addUserSpinner').hide();
+      $('#saveUserText').text('Save');
       $('#btnClick').removeClass('disabled');
     }
 
-    if (!addAuthName) {
-      showToast("Auth name is required.", "warning");
+    if (!addName) {
+      showToast("User name is required.", "warning");
       stopLoading();
       return;
     }
-    if (!addAuthEmail) {
+    if (!addEmail) {
       showToast("Email is required.", "warning");
       stopLoading();
       return;
@@ -219,25 +206,17 @@
       stopLoading();
       return;
     }
-    if (!addPassword) {
-      showToast("Password is required.", "warning");
+    if (!addDOB) {
+      showToast("DOB is required.", "warning");
       stopLoading();
       return;
     }
-    if (!passwordRegex.test(addPassword)) {
-      showToast(
-        "Password must be at least 8 characters and include uppercase, lowercase, number, and special character.",
-        "warning"
-      );
+    if (!addAddress) {
+      showToast("Address is required.", "warning");
       stopLoading();
       return;
     }
-    if (!addAuthType) {
-      showToast("Auth type is required.", "warning");
-      stopLoading();
-      return;
-    }
-    if (!addAuthActive) {
+    if (!addActive) {
       showToast("Active status is required.", "warning");
       stopLoading();
       return;
@@ -247,20 +226,16 @@
     const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
     const formData = new FormData();
-    formData.append('authName', addAuthName);
-    formData.append('authEmail', addAuthEmail);
-    formData.append('phoneNumber', addPhoneNumber);
-    formData.append('password', addPassword);
-    formData.append('authType', addAuthType);
-    formData.append('authActive', addAuthActive);
+    formData.append('addName', addName);
+    formData.append('addEmail', addEmail);
+    formData.append('addPhoneNumber', addPhoneNumber);
+    formData.append('addDOB', addDOB);
+    formData.append('addAddress', addAddress);
+    formData.append('addActive', addActive);
     formData.append(csrfName, csrfHash);
 
-    if (addImageFile) {
-      formData.append('imageFile', addImageFile);
-    }
-
     $.ajax({
-      url: "<?= base_url('add-auth-user') ?>",
+      url: "<?= base_url('add-user') ?>",
       type: "POST",
       dataType: "json",
       data: formData,
@@ -268,7 +243,7 @@
       contentType: false,
       success: function(response) {
         if (response.status) {
-          showToast("Auth user added successfully!", "success");
+          showToast("User added successfully!", "success");
           setTimeout(function() {
             location.reload();
           }, 1000);
@@ -288,7 +263,7 @@
   // Get All
   $(document).ready(function() {
     $.ajax({
-      url: "<?= base_url('fetch-auth-users') ?>",
+      url: "<?= base_url('fetch-users') ?>",
       type: "GET",
       dataType: "json",
       success: function(response) {
@@ -296,11 +271,11 @@
           $('.datatable tbody').html(response.html);
           $('.datatable').DataTable({
             order: [
-              [6, 'asc']
+              [9, 'asc']
             ]
           });
         } else {
-          $('#authUsersResponse').html(response.message || "No auth user(s) found!");
+          $('#usersResponse').html(response.message || "No user(s) found!");
         }
       },
       error: function(xhr) {
@@ -310,21 +285,21 @@
   });
 
   // Get
-  function getAuth(authId) {
+  function getUser(userId) {
     const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
     const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
     $.ajax({
-      url: "<?= base_url('get-auth-user-details') ?>",
+      url: "<?= base_url('get-user-details') ?>",
       method: "POST",
       data: {
-        authId: authId,
+        userId: userId,
         [csrfName]: csrfHash
       },
       dataType: "json",
       success: function(response) {
         if (response.status) {
-          $('#editAuthBody').html(response.html);
+          $('#editUserBody').html(response.html);
           $('#editModal').modal('show');
         } else {
           showToast(response.message, "error");
@@ -337,33 +312,32 @@
   }
 
   // Update
-  $(document).on('click', '.updateAuthUser', function() {
-    const authUserId = $('#updateAuthId').val();
-    const updateAuthName = $('#updateAuthName').val().trim();
-    const updateAuthEmail = $('#updateAuthEmail').val().trim();
+  $(document).on('click', '.updateUser', function() {
+    const updateUserId = $('#updateUserId').val();
+    const updateName = $('#updateName').val().trim();
+    const updateEmail = $('#updateEmail').val().trim();
     const updatePhoneNumber = $('#updatePhoneNumber').val().trim();
-    const updatePassword = $('#updatePassword').val().trim();
-    const updateAuthType = $('#updateAuthType').val();
-    const updateAuthActive = $('#updateAuthActive').val();
+    const updateDOB = $('#updateDOB').val().trim();
+    const updateAddress = $('#updateAddress').val().trim();
+    const updateActive = $('#updateActive').val();
     const updateImageFile = $('#updateImageFile')[0].files[0];
-    const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
 
     $('#editBtnClick').addClass('disabled');
-    $('#updateAuthText').text('');
-    $('#updateAuthSpinner').show();
+    $('#updateUserText').text('');
+    $('#updateUserSpinner').show();
 
     function stopLoading() {
-      $('#updateAuthSpinner').hide();
-      $('#updateAuthText').text('Update');
+      $('#updateUserSpinner').hide();
+      $('#updateUserText').text('Update');
       $('#editBtnClick').removeClass('disabled');
     }
 
-    if (!updateAuthName) {
-      showToast("Auth name is required.", "warning");
+    if (!updateName) {
+      showToast("User name is required.", "warning");
       stopLoading();
       return;
     }
-    if (!updateAuthEmail) {
+    if (!updateEmail) {
       showToast("Email is required.", "warning");
       stopLoading();
       return;
@@ -378,20 +352,17 @@
       stopLoading();
       return;
     }
-    if (updatePassword != "" && !passwordRegex.test(updatePassword)) {
-      showToast(
-        "Password must be at least 8 characters and include uppercase, lowercase, number, and special character.",
-        "warning"
-      );
+    if (!updateDOB) {
+      showToast("DOB is required.", "warning");
       stopLoading();
       return;
     }
-    if (!updateAuthType) {
-      showToast("Auth type is required.", "warning");
+    if (!updateAddress) {
+      showToast("Address is required.", "warning");
       stopLoading();
       return;
     }
-    if (!updateAuthActive) {
+    if (!updateActive) {
       showToast("Active status is required.", "warning");
       stopLoading();
       return;
@@ -401,13 +372,13 @@
     const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
     const formData = new FormData();
-    formData.append('authId', authUserId);
-    formData.append('authName', updateAuthName);
-    formData.append('authEmail', updateAuthEmail);
-    formData.append('phoneNumber', updatePhoneNumber);
-    formData.append('password', updatePassword);
-    formData.append('authType', updateAuthType);
-    formData.append('authActive', updateAuthActive);
+    formData.append('userId', updateUserId);
+    formData.append('updateName', updateName);
+    formData.append('updateEmail', updateEmail);
+    formData.append('updatePhoneNumber', updatePhoneNumber);
+    formData.append('updateDOB', updateDOB);
+    formData.append('updateAddress', updateAddress);
+    formData.append('updateActive', updateActive);
     formData.append(csrfName, csrfHash);
 
     if (updateImageFile) {
@@ -415,7 +386,7 @@
     }
 
     $.ajax({
-      url: "<?= base_url('update-auth-user') ?>",
+      url: "<?= base_url('update-user') ?>",
       type: "POST",
       dataType: "json",
       data: formData,
@@ -423,7 +394,7 @@
       contentType: false,
       success: function(response) {
         if (response.status) {
-          showToast("Auth user updated successfully!", "success");
+          showToast("User updated successfully!", "success");
           setTimeout(function() {
             location.reload();
           }, 1000);
@@ -441,23 +412,23 @@
   });
 
   // Delete
-  function deleteAuth(authId) {
+  function deleteUser(userId) {
     $('#deleteModal').modal('show');
     const csrfName = $('input[name="<?= csrf_token() ?>"]').attr('name');
     const csrfHash = $('input[name="<?= csrf_token() ?>"]').val();
 
     $('#confirmDelete').off('click').on('click', function() {
       $.ajax({
-        url: "<?= base_url('delete-auth-user') ?>",
+        url: "<?= base_url('delete-user') ?>",
         method: "POST",
         data: {
-          authId: authId,
+          userId: userId,
           [csrfName]: csrfHash
         },
         dataType: "json",
         success: function(response) {
           if (response.status) {
-            showToast("Auth user deleted successfully!", "success");
+            showToast("User deleted successfully!", "success");
             setTimeout(function() {
               location.reload();
             }, 1000);

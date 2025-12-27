@@ -21,7 +21,10 @@
                             <tbody id="tcategory">
                                 <tr>
                                     <td colspan="9">
-                                        <center id="activityResponse">Activity Log(s) List Loading...</center>
+                                        <center id="activityResponse">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Activity Log(s) Loading...
+                                        </center>
                                     </td>
                                 </tr>
                             </tbody>

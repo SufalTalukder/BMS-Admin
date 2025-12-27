@@ -69,9 +69,16 @@ $store_active = in_array($current_url, [
         </li>
         <li class="nav-item">
             <a class="nav-link <?= ($current_url == base_url('admin/auth-users-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/auth-users-service') ?>">
-                <i class="ri-parent-line"></i>
+                <i class="ri-shield-user-fill"></i>
                 &nbsp;
-                <span>Auth Users Management</span>
+                <span>Auth User Management</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/users-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/users-service') ?>">
+                <i class="ri-user-received-fill"></i>
+                &nbsp;
+                <span>User Management</span>
             </a>
         </li>
         <li class="nav-item">

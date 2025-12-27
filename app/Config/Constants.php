@@ -116,6 +116,9 @@ define('LOCALHOST_8095', 'http://localhost:8095');
 // AUTH SERVICE
 define('LOCALHOST_8082', 'http://localhost:8082');
 
+// USER SERVICE
+define('LOCALHOST_8081', 'http://localhost:8081');
+
 // BANNER SERVICE
 define('LOCALHOST_8083', 'http://localhost:8083');
 
