@@ -46,6 +46,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Product View Routes
     $routes->get('product-service', 'ProductController::product_view');
+
+    // Wishlist View Routes
+    $routes->get('wishlist-service', 'WishlistController::wishlist_view');
 });
 
 // ====================================================================================================== //
@@ -104,3 +107,8 @@ $routes->get('fetch-products', 'Admin\ProductController::getAllProductsAJAX');
 $routes->post('get-product-details', 'Admin\ProductController::getProductDetailsAJAX');
 $routes->post('update-product', 'Admin\ProductController::updateProductAJAX');
 $routes->post('delete-product', 'Admin\ProductController::deleteProductAJAX');
+
+// Wishlist APIs
+$routes->post('add-wishlist', 'Admin\WishlistController::addWishlistAJAX');
+$routes->get('fetch-wishlists', 'Admin\WishlistController::getAllWishlistsAJAX');
+$routes->post('delete-wishlist', 'Admin\WishlistController::deleteWishlistAJAX');

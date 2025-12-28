@@ -133,3 +133,6 @@ define('LOCALHOST_8085', 'http://localhost:8085');
 
 // PRODUCT SERVICE
 define('LOCALHOST_8086', 'http://localhost:8086');
+
+// WISHLIST SERVICE
+define('LOCALHOST_8091', 'http://localhost:8091');

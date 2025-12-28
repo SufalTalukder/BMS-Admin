@@ -117,5 +117,12 @@ $store_active = in_array($current_url, [
                 </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/wishlist-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/wishlist-service') ?>">
+                <i class="bx bx-bookmark-heart"></i>
+                &nbsp;
+                <span>Wishlist Management</span>
+            </a>
+        </li>
     </ul>
 </aside>

@@ -45,7 +45,7 @@
                         <div class="tab-content pt-2">
                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                 <h5 class="card-title">About</h5>
-                                <p class="small fst-italic">It is <?= PROJECT_NAME; ?> Admin</p>
+                                <p class="small fst-italic"><?= PROJECT_ABOUT; ?></p>
                                 <h5 class="card-title">Profile Details</h5>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
