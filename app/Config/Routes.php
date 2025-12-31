@@ -10,6 +10,11 @@ use CodeIgniter\Router\RouteCollection;
 // ============================== Admin Panel Load View API's ROUTES Here =============================== //
 // ====================================================================================================== //
 
+// Default URL
+$routes->get('/', function () {
+    return redirect()->to('/admin/login');
+});
+
 // Admin Pages Load To View
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('', function () {
@@ -50,6 +55,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     // Wishlist View Routes
     $routes->get('wishlist-service', 'WishlistController::wishlist_view');
 });
+
+// Custom 404 Route
+$routes->set404Override('ErrorsController::error404');
 
 // ====================================================================================================== //
 // ================================ Admin Panel CRUD API's ROUTES Here ================================== //

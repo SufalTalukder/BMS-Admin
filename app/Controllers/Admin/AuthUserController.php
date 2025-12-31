@@ -122,6 +122,8 @@ class AuthUserController extends Common
             list($typeText, $typeClass) = $this->customHelper->getUserTypeDetails($eachAuthUser->authUserType);
             list($statusText, $statusClass) = $this->customHelper->getStatusDetails($eachAuthUser->authUserActive);
 
+            $actionBy = isset($eachAuthUser->actionByUserInfo->authUserName) && $eachAuthUser->actionByUserInfo->authUserName !== '' ? esc($eachAuthUser->actionByUserInfo->authUserName) : '-';
+
             $html .=
                 <<<HTML
                     <tr>
@@ -137,6 +139,7 @@ class AuthUserController extends Common
                         <td>
                             <span class="{$typeClass}">{$typeText}</span>
                         </td>
+                        <td>$actionBy</td>
                         <td>{$this->customHelper->formatDateTime($eachAuthUser->authUserCreatedAt)}</td>
                         <td>{$this->customHelper->formatDateTime($eachAuthUser->authUserUpdatedAt)}</td>
                         <td>

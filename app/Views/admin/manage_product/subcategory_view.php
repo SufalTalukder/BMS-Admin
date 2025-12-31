@@ -6,13 +6,23 @@
         </button>
     </div>
 
-    <section class="section" style="overflow-x: scroll;">
+    <section class="section">
         <div class="row">
             <div class="col-lg-12 px-0">
                 <div class="card">
-                    <div class="card-body p-3">
-                        <!-- Table with stripped rows -->
-                        <table class="table datatable table-sm table-hover">
+                    <div class="card-body">
+                        <div class="datatable-top d-flex justify-content-between align-items-center mb-2">
+                            <div class="datatable-search d-flex gap-2">
+                                <button class="datatable-button" id="export-csv">Export CSV</button>
+                                <button class="datatable-button" id="export-excel">Export Excel</button>
+                                <button class="datatable-button" id="export-pdf">Export PDF</button>
+                                <button class="datatable-button" id="export-doc">Export DOC</button>
+                                <button class="datatable-button" id="export-txt">Export TXT</button>
+                                <button class="datatable-button" id="export-sql">Export SQL</button>
+                            </div>
+                        </div>
+                        <!-- Table -->
+                        <table class="datatable table table-hover table-sm" id="demo-table">
                             <thead>
                                 <tr>
                                     <th>Sr. No.</th>
@@ -25,17 +35,14 @@
                                 </tr>
                             </thead>
                             <tbody id="tcategory">
-                                <tr>
-                                    <td colspan="9">
-                                        <center id="subCategoryResponse">
-                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                            Subcategorie(s) Loading...
-                                        </center>
+                                <tr id="loader-row">
+                                    <td colspan="7" class="text-center py-4">
+                                        <div class="spinner-border spinner-border-sm"></div>
+                                        <strong>Subcategorie(s) Loading...</strong>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- End Table with stripped rows -->
                     </div>
                 </div>
             </div>
@@ -197,6 +204,8 @@
     });
 
     // Get All
+    let dataTable;
+
     $(document).ready(function() {
         $.ajax({
             url: "<?= base_url('fetch-sub-categories') ?>",
@@ -204,14 +213,15 @@
             dataType: "json",
             success: function(response) {
                 if (response.status) {
-                    $('.datatable tbody').html(response.html);
-                    $('.datatable').DataTable({
-                        order: [
-                            [3, 'asc']
-                        ]
+                    $('#loader-row').remove();
+                    $('#tcategory').append(response.html);
+
+                    dataTable = new simpleDatatables.DataTable("#demo-table", {
+                        searchable: true,
+                        sortable: true
                     });
                 } else {
-                    $('#subCategoryResponse').html(response.message || "No Subcategorie(s) found!");
+                    $('#loader-row td').html('No subcategorie(s) found.');
                 }
             },
             error: function(xhr) {

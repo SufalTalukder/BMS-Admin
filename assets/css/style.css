@@ -247,7 +247,7 @@ h6 {
 }
 
 .card-body {
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 .card-img-overlay {
@@ -1263,4 +1263,17 @@ h6 {
 .red-bold {
   color: red;
   font-weight: bold;
+}
+
+/* 31-12-2025 */
+.datatable-button {
+  padding: 8px 15px;
+  border: 1px solid #ced4da;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.datatable-button:hover {
+  background: #e9ecef;
 }

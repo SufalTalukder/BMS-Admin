@@ -1,0 +1,215 @@
+INFO - 2025-12-29 09:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 09:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 10:31:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 10:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-29 10:31:38 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:34:41 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:34:48 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:35:03 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:40:41 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:41:12 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:41:36 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:41:39 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:42:37 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:42:39 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:43:44 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:45:36 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:48:46 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:48:50 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: test]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:48:52 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: test]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:50:29 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: non-existing-page]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:52:21 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: non-existing-page]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:52:23 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: non-existing-page]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:52:36 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: non-existing-page]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-12-29 10:52:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 10:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 10:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-29 10:52:52 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-29 10:54:01 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-12-29 11:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-29 11:03:43 --> Error: Object of class CodeIgniter\HTTP\Response could not be converted to string
+[Method: GET, Route: admin/login/test]
+in SYSTEMPATH/CodeIgniter.php on line 955.
+ 1 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 2 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 3 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 4 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-12-29 11:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:04:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:04:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:04:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-29 11:05:25 --> Error: Class "ErrorsController" not found
+[Method: GET, Route: admin/login/test]
+in SYSTEMPATH/CodeIgniter.php on line 903.
+ 1 SYSTEMPATH/CodeIgniter.php(963): CodeIgniter\CodeIgniter->createController()
+ 2 SYSTEMPATH/CodeIgniter.php(364): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 3 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 5 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-12-29 11:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-29 11:07:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
