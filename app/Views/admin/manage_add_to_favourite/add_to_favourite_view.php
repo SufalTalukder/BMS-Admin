@@ -190,6 +190,8 @@
   });
 
   // Get All
+  let dataTable;
+
   $(document).ready(function() {
     $.ajax({
       url: "<?= base_url('fetch-wishlists') ?>",
