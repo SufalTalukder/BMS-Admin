@@ -124,5 +124,12 @@ $store_active = in_array($current_url, [
                 <span>Wishlist Management</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/cart-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/cart-service') ?>">
+                <i class="bx bx-cart"></i>
+                &nbsp;
+                <span>Cart Management</span>
+            </a>
+        </li>
     </ul>
 </aside>

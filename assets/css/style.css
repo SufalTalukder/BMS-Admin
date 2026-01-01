@@ -1277,3 +1277,9 @@ h6 {
 .datatable-button:hover {
   background: #e9ecef;
 }
+
+/* 01-01-2026 */
+body.error-page {
+  height: 100vh;
+  overflow: hidden;
+}

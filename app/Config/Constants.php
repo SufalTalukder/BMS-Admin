@@ -137,5 +137,8 @@ define('LOCALHOST_8086', 'http://localhost:8086');
 // WISHLIST SERVICE
 define('LOCALHOST_8091', 'http://localhost:8091');
 
+// CART SERVICE
+define('LOCALHOST_8090', 'http://localhost:8090');
+
 // VERSION CONTROL
 define('v', time());

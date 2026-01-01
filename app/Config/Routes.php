@@ -54,10 +54,14 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Wishlist View Routes
     $routes->get('wishlist-service', 'WishlistController::wishlist_view');
+
+    // Cart View Routes
+    $routes->get('cart-service', 'CartController::cart_view');
 });
 
 // Custom 404 Route
-$routes->set404Override('ErrorsController::error404');
+$routes->setAutoRoute(true);
+$routes->set404Override('\App\Controllers\ErrorsController::error404');
 
 // ====================================================================================================== //
 // ================================ Admin Panel CRUD API's ROUTES Here ================================== //
@@ -120,3 +124,7 @@ $routes->post('delete-product', 'Admin\ProductController::deleteProductAJAX');
 $routes->post('add-wishlist', 'Admin\WishlistController::addWishlistAJAX');
 $routes->get('fetch-wishlists', 'Admin\WishlistController::getAllWishlistsAJAX');
 $routes->post('delete-wishlist', 'Admin\WishlistController::deleteWishlistAJAX');
+
+// Cart APIs
+$routes->get('fetch-carts', 'Admin\CartController::getAllCartsAJAX');
+$routes->post('delete-cart', 'Admin\CartController::deleteCartAJAX');

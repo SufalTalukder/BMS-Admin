@@ -30,7 +30,7 @@
     <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 </head>
 
-<body>
+<body class="error-page">
 
     <main>
         <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
