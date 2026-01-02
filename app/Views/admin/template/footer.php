@@ -143,6 +143,59 @@
     a.click();
     document.body.removeChild(a);
   }
+
+  // Show offline banner
+  (function() {
+    const banner = document.getElementById('offlineBanner');
+
+    function isLoggedIn() {
+      return document.body.dataset.logged === "1";
+    }
+
+    function showOffline() {
+      banner.style.display = 'block';
+    }
+
+    function hideOffline() {
+      banner.style.display = 'none';
+    }
+
+    function updateStatus() {
+      if (!isLoggedIn()) return;
+
+      if (!navigator.onLine) {
+        showOffline();
+      } else {
+        hideOffline();
+      }
+    }
+
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+    updateStatus();
+  })();
+
+  // Prevent AJAX calls while offline
+  (function() {
+    const originalFetch = window.fetch;
+
+    window.fetch = function() {
+      if (!navigator.onLine) {
+        console.warn('Offline: fetch blocked');
+        return Promise.reject();
+      }
+      return originalFetch.apply(this, arguments);
+    };
+  })();
+
+  window.addEventListener('online', () => {
+    window.location.href = document.referrer || "<?= base_url('admin/activity-service') ?>";
+  });
+
+  let i = 0;
+  setInterval(() => {
+    document.getElementById('dots').textContent = '.'.repeat(i++ % 4);
+  }, 500);
 </script>
 
 </body>

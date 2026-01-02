@@ -14,6 +14,12 @@
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        <button class="d-none" id="export-csv">Export CSV</button>
+                        <button class="d-none" id="export-excel">Export Excel</button>
+                        <button class="d-none" id="export-pdf">Export PDF</button>
+                        <button class="d-none" id="export-doc">Export DOC</button>
+                        <button class="d-none" id="export-txt">Export TXT</button>
+                        <button class="d-none" id="export-sql">Export SQL</button>
                         <img src="<?= !empty($extracted_auth_user_details->authUserImage) ? $extracted_auth_user_details->authUserImage : base_url('assets/img/admin.jfif') ?>" alt="Profile" class="rounded-circle">
                         <h2><?= !empty($extracted_auth_user_details->authUserName) ? $extracted_auth_user_details->authUserName : "NA"; ?></h2>
                         <h3><?= !empty($extracted_auth_user_details->authUserType) && ($extracted_auth_user_details->authUserType === "SUPER_ADMIN") ? "SUPER ADMIN" : "ADMIN"; ?></h3>
@@ -203,7 +209,7 @@
 <script type="text/javascript">
     // Update
     $(document).on('click', '.updateAuthUser', function() {
-        const authUserId = $('#updateAuthId').val();
+        const authUserId = $('#updateAuthId').val() ?? null;
         const updateAuthName = $('#updateAuthName').val().trim();
         const updateAuthEmail = $('#updateAuthEmail').val().trim();
         const updatePhoneNumber = $('#updatePhoneNumber').val().trim();

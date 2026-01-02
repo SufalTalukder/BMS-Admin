@@ -50,6 +50,17 @@
 </main>
 
 <script type="text/javascript">
+  // Network got interrupted
+  const banner = document.getElementById('offlineBanner');
+
+  function updateStatus() {
+    banner.style.display = navigator.onLine ? 'none' : 'block';
+  }
+
+  window.addEventListener('online', updateStatus);
+  window.addEventListener('offline', updateStatus);
+  updateStatus();
+
   // Submit
   $(document).on('click', '.submitLoginBtn', function(e) {
     e.preventDefault();
@@ -126,4 +137,13 @@
       stopOnFocus: true
     }).showToast();
   }
+
+  window.addEventListener('online', () => {
+    window.location.href = document.referrer || "<?= base_url('admin/activity-service') ?>";
+  });
+
+  let i = 0;
+  setInterval(() => {
+    document.getElementById('dots').textContent = '.'.repeat(i++ % 4);
+  }, 500);
 </script>

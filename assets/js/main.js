@@ -392,5 +392,4 @@ function formatDate(dateString) {
       }).observe(mainContainer);
     }, 200);
   }
-
 })();

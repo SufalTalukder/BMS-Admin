@@ -30,4 +30,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
-<body>
+<body data-logged="<?= session()->has('admin_logged_true') ? '1' : '0' ?>">
+
+  <div id="offlineBanner">
+    ⚠ You're offline. Check your connection .<span id="dots"></span>
+  </div>

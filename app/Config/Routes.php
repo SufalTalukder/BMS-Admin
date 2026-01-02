@@ -25,14 +25,14 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('login', 'LoginController::login_view');
     $routes->get('logout', 'LoginController::logout');
 
+    // Activity View Routes
+    $routes->get('activity-service', 'AuthActivityController::auth_activity_list_view');
+
     // Auth Users View Routes
     $routes->get('auth-users-service', 'AuthUserController::auth_user_list_view');
 
     // Users View Routes
     $routes->get('users-service', 'UserController::users_view');
-
-    // Activity View Routes
-    $routes->get('activity-service', 'AuthActivityController::auth_activity_list_view');
 
     // Banner View Routes
     $routes->get('banners-service', 'BannerController::banner_list_view');
@@ -41,7 +41,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('language-service', 'LanguageController::language_settings_view');
 
     // Auth Profile View Routes
-    $routes->get('profile-service', 'AuthUserController::auth_profile_view');
+    $routes->get('profile-service', 'AuthProfileController::auth_profile_view');
 
     // Category View Routes
     $routes->get('category-service', 'CategoryController::category_view');
