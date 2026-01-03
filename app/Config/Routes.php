@@ -57,6 +57,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     // Cart View Routes
     $routes->get('cart-service', 'CartController::cart_view');
+
+    // Newsletter View Routes
+    $routes->get('newsletter-service', 'NewsletterController::newsletter_view');
 });
 
 // Custom 404 Route
@@ -126,5 +129,13 @@ $routes->get('fetch-wishlists', 'Admin\WishlistController::getAllWishlistsAJAX')
 $routes->post('delete-wishlist', 'Admin\WishlistController::deleteWishlistAJAX');
 
 // Cart APIs
+$routes->post('add-cart', 'Admin\CartController::addCartAJAX');
+$routes->post('get-product-price', 'Admin\CartController::getProductPriceAJAX');
 $routes->get('fetch-carts', 'Admin\CartController::getAllCartsAJAX');
 $routes->post('delete-cart', 'Admin\CartController::deleteCartAJAX');
+
+// Newsletter APIs
+$routes->post('add-newsletter', 'Admin\NewsletterController::addNewsletterAJAX');
+$routes->get('fetch-newsletters', 'Admin\NewsletterController::getAllNewslettersAJAX');
+$routes->post('get-newsletter-details', 'Admin\NewsletterController::getNewsletterDetailsAJAX');
+$routes->post('update-newsletter', 'Admin\NewsletterController::updateNewsletterAJAX');

@@ -56,6 +56,63 @@ class CartController extends Common
             . view('admin/template/footer');
     }
 
+    public function addCartAJAX()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Invalid request!'
+            ]);
+        }
+
+        $data = [
+            'productId'             => $this->request->getPost('productId'),
+            'userId'                => $this->request->getPost('userId'),
+            'quantity'              => $this->request->getPost('quantity'),
+            'eachProductTotalPrice' => $this->request->getPost('eachProductTotalPrice')
+        ];
+
+        return $this->response->setJSON(
+            $this->cartModel->addCartAJAX($data)
+        );
+    }
+
+    public function getProductPriceAJAX()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Invalid request!'
+            ]);
+        }
+
+        $productId = $this->request->getPost('productId');
+        if (!$productId) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Product ID missing.'
+            ]);
+        }
+
+        $productId = htmlspecialchars(strip_tags($productId));
+        $result = $this->cartModel->getProductPriceAJAX($productId);
+        if (
+            empty($result)
+        ) {
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Product price not found.'
+            ]);
+        }
+
+        $productPrice = htmlspecialchars($result);
+
+        return $this->response->setJSON([
+            'status' => true,
+            'price'  => $productPrice
+        ]);
+    }
+
     public function getAllCartsAJAX()
     {
         if (!$this->request->isAJAX()) {

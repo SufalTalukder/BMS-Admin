@@ -140,5 +140,8 @@ define('LOCALHOST_8091', 'http://localhost:8091');
 // CART SERVICE
 define('LOCALHOST_8090', 'http://localhost:8090');
 
+// NEWSLETTER SERVICE
+define('LOCALHOST_8089', 'http://localhost:8089');
+
 // VERSION CONTROL
 define('v', time());
