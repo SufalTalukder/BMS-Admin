@@ -132,6 +132,13 @@ $store_active = in_array($current_url, [
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/checkout-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/checkout-service') ?>">
+                <i class="ri-secure-payment-fill"></i>
+                &nbsp;
+                <span>Checkout Management</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link <?= ($current_url == base_url('admin/newsletter-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/newsletter-service') ?>">
                 <i class="bx bx-news"></i>
                 &nbsp;

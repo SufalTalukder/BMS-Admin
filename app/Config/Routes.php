@@ -58,6 +58,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     // Cart View Routes
     $routes->get('cart-service', 'CartController::cart_view');
 
+    // Checkout View Routes
+    $routes->get('checkout-service', 'CheckoutHistoryController::checkout_view');
+
     // Newsletter View Routes
     $routes->get('newsletter-service', 'NewsletterController::newsletter_view');
 });
@@ -133,6 +136,9 @@ $routes->post('add-cart', 'Admin\CartController::addCartAJAX');
 $routes->post('get-product-price', 'Admin\CartController::getProductPriceAJAX');
 $routes->get('fetch-carts', 'Admin\CartController::getAllCartsAJAX');
 $routes->post('delete-cart', 'Admin\CartController::deleteCartAJAX');
+
+// Checkout APIs
+$routes->get('fetch-checkout-histories', 'Admin\CheckoutHistoryController::getAllCheckoutHistoriesAJAX');
 
 // Newsletter APIs
 $routes->post('add-newsletter', 'Admin\NewsletterController::addNewsletterAJAX');

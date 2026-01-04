@@ -110,20 +110,14 @@ define('XAPISECRET', 'SufalTalukder70');
 // REQUEST AUTH MAPPING
 define('REQUEST_AUTH_MAPPING', '/api/v1/elastic/auth');
 
-// ACTIVITY LOG SERVICE
-define('LOCALHOST_8095', 'http://localhost:8095');
+// USER SERVICE
+define('LOCALHOST_8081', 'http://localhost:8081');
 
 // AUTH SERVICE
 define('LOCALHOST_8082', 'http://localhost:8082');
 
-// USER SERVICE
-define('LOCALHOST_8081', 'http://localhost:8081');
-
 // BANNER SERVICE
 define('LOCALHOST_8083', 'http://localhost:8083');
-
-// LANGUAGE SERVICE
-define('LOCALHOST_8088', 'http://localhost:8088');
 
 // CATEGORY SERVICE
 define('LOCALHOST_8084', 'http://localhost:8084');
@@ -134,14 +128,23 @@ define('LOCALHOST_8085', 'http://localhost:8085');
 // PRODUCT SERVICE
 define('LOCALHOST_8086', 'http://localhost:8086');
 
-// WISHLIST SERVICE
-define('LOCALHOST_8091', 'http://localhost:8091');
+// CHECKOUT SERVICE
+define('LOCALHOST_8087', 'http://localhost:8087');
+
+// LANGUAGE SERVICE
+define('LOCALHOST_8088', 'http://localhost:8088');
+
+// NEWSLETTER SERVICE
+define('LOCALHOST_8089', 'http://localhost:8089');
 
 // CART SERVICE
 define('LOCALHOST_8090', 'http://localhost:8090');
 
-// NEWSLETTER SERVICE
-define('LOCALHOST_8089', 'http://localhost:8089');
+// WISHLIST SERVICE
+define('LOCALHOST_8091', 'http://localhost:8091');
+
+// ACTIVITY LOG SERVICE
+define('LOCALHOST_8095', 'http://localhost:8095');
 
 // VERSION CONTROL
 define('v', time());
