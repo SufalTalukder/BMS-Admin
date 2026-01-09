@@ -130,9 +130,9 @@ class ProductController extends Common
 
             $productBrand = isset($eachProduct->productBrand) && $eachProduct->productBrand !== '' ? esc($eachProduct->productBrand) : '-';
 
-            $productAvailability = isset($eachProduct->productAvailability) && $eachProduct->productAvailability !== '' ? esc($eachProduct->productAvailability) : '0';
+            $productAvailability = isset($eachProduct->productAvailability) && $eachProduct->productAvailability !== '' ? number_format((int)$eachProduct->productAvailability) : number_format((int)0);
 
-            $productPrice = isset($eachProduct->productPrice) && $eachProduct->productPrice !== '' ? esc($eachProduct->productPrice) : '0.00';
+            $productPrice = isset($eachProduct->productPrice) && $eachProduct->productPrice !== '' ? number_format((float)$eachProduct->productPrice, 2) : number_format((float)0, 2);
 
             $productDeatils = isset($eachProduct->productDetails) && $eachProduct->productDetails !== '' ? esc($eachProduct->productDetails) : '-';
 

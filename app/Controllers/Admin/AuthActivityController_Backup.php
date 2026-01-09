@@ -45,7 +45,10 @@ class AuthActivityController extends Common
     public function getAllAuthActivityAJAX()
     {
         if (!$this->request->isAJAX()) {
-            return $this->response->setJSON([]);
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'Invalid request!'
+            ]);
         }
 
         $result = $this->authActivityModel->getAllAuthActivityAJAX();
@@ -55,24 +58,34 @@ class AuthActivityController extends Common
             $result->status !== 'success' ||
             empty($result->content)
         ) {
-            return $this->response->setJSON([]);
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'No activitie(s) found!'
+            ]);
         }
 
-        $events = [];
-        if (!empty($result->content)) {
-            foreach ($result->content as $activity) {
-                list($methodText, $methodClass) =
-                    $this->customHelper->getMethodDetails($activity->actionLogMethod);
+        $html = '';
+        $i = 1;
+        foreach ($result->content as $activity) {
+            list($methodText, $methodClass) = $this->customHelper->getMethodDetails($activity->actionLogMethod);
 
-                $events[] = [
-                    'title' => $methodText,
-                    'start' => date('Y-m-d\TH:i:s', strtotime($activity->actionLogCreatedAt)),
-                    'description' => $activity->actionLogMessage,
-                    'classNames' =>  $this->customHelper->getCalendarMethodDetails($activity->actionLogMethod)
-                ];
-            }
+            $html .=
+                <<<HTML
+                    <tr>
+                        <td>#{$i}</td>
+                        <td>
+                            <span class="{$methodClass}">{$methodText}</span>
+                        </td>
+                        <td>$activity->actionLogMessage</td>
+                        <td>{$this->customHelper->formatDateTime($activity->actionLogCreatedAt)}</td>
+                    </tr>
+                HTML;
+            $i++;
         }
 
-        return $this->response->setJSON($events);
+        return $this->response->setJSON([
+            'status' => true,
+            'html'   => $html
+        ]);
     }
 }

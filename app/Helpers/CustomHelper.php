@@ -37,6 +37,22 @@ class CustomHelper
         }
     }
 
+    public function getCalendarMethodDetails($method)
+    {
+        switch ($method) {
+            case 'POST':
+                return ['badge', 'bg-warning', 'rounded'];
+            case 'GET':
+                return ['badge', 'bg-success', 'rounded'];
+            case 'DELETE':
+                return ['badge', 'bg-danger', 'rounded'];
+            case 'PUT':
+                return ['badge', 'bg-info', 'rounded'];
+            default:
+                return ['badge', 'bg-secondary', 'rounded'];
+        }
+    }
+
     public function getUserTypeDetails($userType)
     {
         switch ($userType) {
@@ -46,6 +62,30 @@ class CustomHelper
                 return ['Admin', 'badge bg-secondary rounded'];
             default:
                 return ['Unknown', 'badge bg-dark rounded'];
+        }
+    }
+
+    public function getProductStock($productStock)
+    {
+        switch ($productStock) {
+            case 'IN_STOCK':
+                return ['In Stock', 'badge bg-info rounded'];
+            case 'OUT_OF_STOCK':
+                return ['Out of Stock', 'badge bg-danger rounded'];
+            default:
+                return ['Unknown', 'badge bg-dark rounded'];
+        }
+    }
+
+    public function getOrderStatusDetails($orderStatus)
+    {
+        switch ($orderStatus) {
+            case 'YES':
+                return ['SUCCESSFUL', 'badge bg-success'];
+            case 'NO':
+                return ['CANCELLED', 'badge bg-danger'];
+            default:
+                return ['UNKNOWN', 'badge bg-secondary'];
         }
     }
 
@@ -85,18 +125,6 @@ class CustomHelper
             return $date->format('M j, Y • h:i A');
         } catch (\Exception $e) {
             return 'Invalid date';
-        }
-    }
-
-    public function getProductStock($productStock)
-    {
-        switch ($productStock) {
-            case 'IN_STOCK':
-                return ['In Stock', 'badge bg-info rounded'];
-            case 'OUT_OF_STOCK':
-                return ['Out of Stock', 'badge bg-danger rounded'];
-            default:
-                return ['Unknown', 'badge bg-dark rounded'];
         }
     }
 }

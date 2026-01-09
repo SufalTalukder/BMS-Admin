@@ -68,6 +68,13 @@ $store_active = in_array($current_url, [
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/systems-activity-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/systems-activity-service') ?>">
+                <i class="bi bi-file-person"></i>
+                &nbsp;
+                <span>Track System(s) Activity</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link <?= ($current_url == base_url('admin/auth-users-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/auth-users-service') ?>">
                 <i class="ri-shield-user-fill"></i>
                 &nbsp;
@@ -143,6 +150,13 @@ $store_active = in_array($current_url, [
                 <i class="bx bx-news"></i>
                 &nbsp;
                 <span>Newsletter Management</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($current_url == base_url('admin/support-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/support-service') ?>">
+                <i class="bx bx-news"></i>
+                &nbsp;
+                <span>Support</span>
             </a>
         </li>
     </ul>

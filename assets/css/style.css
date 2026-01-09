@@ -1297,3 +1297,10 @@ body.error-page {
   z-index: 9999;
   font-weight: 600;
 }
+
+/* 09-01-2026 */
+.fc-direction-ltr .fc-daygrid-event.fc-event-end,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start {
+  display: flex;
+  justify-content: space-between;
+}

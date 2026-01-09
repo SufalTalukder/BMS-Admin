@@ -79,7 +79,6 @@ class CheckoutHistoryController extends Common
                 : '-';
 
             $productsList = '-';
-
             if (!empty($row->products)) {
                 $products = [];
 
@@ -93,7 +92,6 @@ class CheckoutHistoryController extends Common
                             </div>
                         ';
                 }
-
                 $productsList = implode('', $products);
             }
 
@@ -104,15 +102,8 @@ class CheckoutHistoryController extends Common
             $paymentMethod  = '<span class="badge bg-secondary">' . esc($row->paymentMethod ?? '-') . '</span>';
             $paymentAmount  = '₹' . number_format((float)$row->paymentAmount, 2);
 
-            if ($row->orderStatus === 'SUCCESSFUL') {
-                $orderStatusClass = 'badge bg-success';
-            } elseif ($row->orderStatus === 'CANCELLED') {
-                $orderStatusClass = 'badge bg-danger';
-            } else {
-                $orderStatusClass = 'badge bg-secondary';
-            }
-
-            $orderStatus = '<span class="' . $orderStatusClass . '">' . esc($row->orderStatus) . '</span>';
+            list($orderStatus, $orderStatusClass) = $this->customHelper->getOrderStatusDetails($row->orderStatus);
+            $orderStatusSpan = '<span class="' . $orderStatusClass . '">' . esc($orderStatus) . '</span>';
 
             $paymentDate = !empty($row->paymentDateTime)
                 ? $this->customHelper->formatDateTime($row->paymentDateTime)
@@ -140,7 +131,7 @@ class CheckoutHistoryController extends Common
                         <td>{$shippingMethod}</td>
                         <td>{$paymentMethod}</td>
                         <td>{$paymentAmount}</td>
-                        <td>{$orderStatus}</td>
+                        <td>{$orderStatusSpan}</td>
                         <td>{$paymentDate}</td>
                         <td>{$deliveryInDays}</td>
                         <td>{$actionBy}</td>
