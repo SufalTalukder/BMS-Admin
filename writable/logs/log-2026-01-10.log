@@ -1,0 +1,45 @@
+CRITICAL - 2026-01-10 16:21:02 --> CodeIgniter\HTTP\Exceptions\HTTPException: 22 : The requested URL returned error: 401 
+[Method: POST, Route: submit-login]
+in SYSTEMPATH/HTTP/CURLRequest.php on line 694.
+ 1 SYSTEMPATH/HTTP/CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested URL returned error: 401 ')
+ 2 SYSTEMPATH/HTTP/CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH/HTTP/CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://localhost:8082/api/v1/elastic/auth/login')
+ 4 SYSTEMPATH/HTTP/CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 5 APPPATH/Models/Admin/LoginModel.php(22): CodeIgniter\HTTP\CURLRequest->post('http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 6 APPPATH/Controllers/Admin/LoginController.php(44): App\Models\Admin\LoginModel->submitLoginAJAX('super.admin123@yopmail.com', '@SuperAdmin#123')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\LoginController->submitLoginAJAX()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\LoginController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-10 16:21:49 --> CodeIgniter\HTTP\Exceptions\HTTPException: 22 : The requested URL returned error: 401 
+[Method: POST, Route: submit-login]
+in SYSTEMPATH/HTTP/CURLRequest.php on line 694.
+ 1 SYSTEMPATH/HTTP/CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested URL returned error: 401 ')
+ 2 SYSTEMPATH/HTTP/CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH/HTTP/CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://localhost:8082/api/v1/elastic/auth/login')
+ 4 SYSTEMPATH/HTTP/CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 5 APPPATH/Models/Admin/LoginModel.php(22): CodeIgniter\HTTP\CURLRequest->post('http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 6 APPPATH/Controllers/Admin/LoginController.php(44): App\Models\Admin\LoginModel->submitLoginAJAX('super.admin123@yopmail.com', '@SuperAdmin#123')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\LoginController->submitLoginAJAX()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\LoginController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-10 16:23:53 --> CodeIgniter\HTTP\Exceptions\HTTPException: 22 : The requested URL returned error: 401 
+[Method: POST, Route: submit-login]
+in SYSTEMPATH/HTTP/CURLRequest.php on line 694.
+ 1 SYSTEMPATH/HTTP/CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('22', 'The requested URL returned error: 401 ')
+ 2 SYSTEMPATH/HTTP/CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH/HTTP/CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://localhost:8082/api/v1/elastic/auth/login')
+ 4 SYSTEMPATH/HTTP/CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 5 APPPATH/Models/Admin/LoginModel.php(22): CodeIgniter\HTTP\CURLRequest->post('http://localhost:8082/api/v1/elastic/auth/login', [...])
+ 6 APPPATH/Controllers/Admin/LoginController.php(44): App\Models\Admin\LoginModel->submitLoginAJAX('super.admin123@yopmail.com', '@SuperAdmin#123')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\LoginController->submitLoginAJAX()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\LoginController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

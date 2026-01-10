@@ -25,9 +25,14 @@ class LoginModel
                     'authUserPassword'     => $password
                 ],
                 'headers' => [
-                    'Accept' => 'application/json'
+                    'User-Agent'    => $_SERVER['HTTP_USER_AGENT'] ?? 'CI4-CLIENT',
+                    'x-api-key'     => XAPIKEY,
+                    'x-api-secret'  => XAPISECRET,
+                    'Accept'        => 'application/json',
+                    'Content-Type'  => 'application/x-www-form-urlencoded'
                 ],
-                'timeout' => 10
+                'timeout' => 10,
+                'http_errors' => false
             ]);
 
             $result = json_decode($response->getBody());
