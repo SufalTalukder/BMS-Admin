@@ -69,9 +69,9 @@ $store_active = in_array($current_url, [
         </li>
         <li class="nav-item">
             <a class="nav-link <?= ($current_url == base_url('admin/systems-activity-service')) ? 'active' : '' ?>" href="<?php echo base_url('admin/systems-activity-service') ?>">
-                <i class="bi bi-file-person"></i>
+                <i class="ri-file-search-fill"></i>
                 &nbsp;
-                <span>Track System(s) Activity</span>
+                <span>Track System Activity</span>
             </a>
         </li>
         <li class="nav-item">

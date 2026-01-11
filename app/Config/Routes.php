@@ -25,6 +25,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('login', 'LoginController::login_view');
     $routes->get('logout', 'LoginController::logout');
 
+    // Login Audit View Routes
+    $routes->get('systems-activity-service', 'AuthLoginAuditController::login_audit_view');
+
     // Activity View Routes
     $routes->get('activity-service', 'AuthActivityController::auth_activity_list_view');
 
@@ -75,6 +78,9 @@ $routes->set404Override('\App\Controllers\ErrorsController::error404');
 
 // Admin Login APIs
 $routes->post('submit-login', 'Admin\LoginController::submitLoginAJAX');
+
+// Login Audit APIs
+$routes->get('fetch-login-audits', 'Admin\AuthLoginAuditController::getAllLoginAuditsAJAX');
 
 // Auth User APIs
 $routes->post('add-auth-user', 'Admin\AuthUserController::addAuthUserAJAX');
@@ -145,3 +151,5 @@ $routes->post('add-newsletter', 'Admin\NewsletterController::addNewsletterAJAX')
 $routes->get('fetch-newsletters', 'Admin\NewsletterController::getAllNewslettersAJAX');
 $routes->post('get-newsletter-details', 'Admin\NewsletterController::getNewsletterDetailsAJAX');
 $routes->post('update-newsletter', 'Admin\NewsletterController::updateNewsletterAJAX');
+
+

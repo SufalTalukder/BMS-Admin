@@ -1,0 +1,97 @@
+CRITICAL - 2026-01-11 05:10:09 --> Error: Object of class stdClass could not be converted to string
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 74.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:10:44 --> Error: Object of class stdClass could not be converted to string
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 74.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:20:22 --> Error: Object of class stdClass could not be converted to string
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 74.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:27:45 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 88.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 88)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:30:01 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 87.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 87)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:38:44 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 86.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 86)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:39:04 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 86.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 86)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:43:21 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 86.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 86)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:46:24 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 86.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 86)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-01-11 05:47:30 --> ErrorException: Undefined property: stdClass::$createdAt
+[Method: GET, Route: fetch-login-audits]
+in APPPATH/Controllers/Admin/AuthLoginAuditController.php on line 86.
+ 1 APPPATH/Controllers/Admin/AuthLoginAuditController.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$createdAt', '/Applications/MAMP/htdocs/book-management-system/app/Controllers/Admin/AuthLoginAuditController.php', 86)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Admin\AuthLoginAuditController->getAllLoginAuditsAJAX()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\AuthLoginAuditController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
